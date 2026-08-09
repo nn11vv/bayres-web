@@ -138,7 +138,6 @@ export interface BusinessInfo {
     country: string;
   };
   coordinates: Coordinates;
-  foundedYear: number;
   team: string[];
   hours: {
     weekdays: string;

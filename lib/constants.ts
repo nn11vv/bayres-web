@@ -78,7 +78,6 @@ export const SITE = {
   legalName: "Persianas Bayres",
   founder: "Julián",
   team: ["Julián", "Juan", "Valentín"],
-  founded: 2005, // placeholder — ajustar cuando se confirme el año real
   location: {
     city: "Mutxamel",
     region: "Alicante",
@@ -95,7 +94,7 @@ export const SITE = {
     es: WHATSAPP_ES,
     en: WHATSAPP_EN,
   },
-  email: "info@persianasbayres.com", // placeholder — verificar el email real
+  email: "persianasbayres@gmail.com",
   social: {
     google: "https://www.google.com/maps/place/Persianas+Bayres",
   },
@@ -117,7 +116,6 @@ export const BUSINESS_INFO: BusinessInfo = {
     country: "ES",
   },
   coordinates: { lat: 38.4089, lng: -0.4744 },
-  foundedYear: 2004,
   team: ["Julián", "Juan", "Valentín"],
   hours: {
     weekdays: "09:00-14:00, 16:00-19:00",
