@@ -2,19 +2,21 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
+import FAQAccordion from "@/components/ui/FAQAccordion";
 import SchemaLocalBusiness from "@/components/seo/SchemaLocalBusiness";
+import SchemaFAQ from "@/components/seo/SchemaFAQ";
+import SchemaBreadcrumb from "@/components/seo/SchemaBreadcrumb";
 import { getContent } from "@/lib/i18n";
 import { isLocale, DEFAULT_LOCALE } from "@/lib/i18n";
 import { SITE, LOCATIONS } from "@/lib/constants";
-import type { Locale, ZoneContent } from "@/lib/types";
+import type { Locale, ReviewContent, ZoneDetailContent, ZoneSlug } from "@/lib/types";
 
 export function generateStaticParams() {
   return LOCATIONS.map((location) => ({ zona: location.slug }));
 }
 
-async function getZone(locale: Locale, slug: string): Promise<ZoneContent | undefined> {
-  const zones = await getContent<ZoneContent[]>(locale, "zones");
-  return zones.find((zone) => zone.slug === slug);
+async function getZonesDetail(locale: Locale) {
+  return getContent<Record<ZoneSlug, ZoneDetailContent>>(locale, "zones-detail");
 }
 
 export async function generateMetadata({
@@ -24,21 +26,20 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: rawLocale, zona } = await params;
   const locale = isLocale(rawLocale) ? rawLocale : DEFAULT_LOCALE;
-  const zone = await getZone(locale, zona);
+  const zonesDetail = await getZonesDetail(locale);
+  const zone = zonesDetail[zona as ZoneSlug];
 
   if (!zone) {
     return {};
   }
 
   const title =
-    locale === "es"
-      ? `Persianista en ${zone.name}`
-      : `Blind & Fly Screen Repair in ${zone.name}`;
+    locale === "es" ? `Persianista en ${zone.name}` : `Blind Repair in ${zone.name}`;
 
   const description =
     locale === "es"
-      ? `Reparación e instalación de persianas y mosquiteras en ${zone.name}, Alicante. Empresa familiar con más de 20 años y +200 reseñas 5⭐. Presupuesto sin compromiso.`
-      : `Blind and fly screen repair & installation in ${zone.name}, Costa Blanca. Family-run business with 20+ years of experience and +200 five-star reviews. English speaking team.`;
+      ? `Reparación e instalación de persianas y mosquiteras en ${zone.name}. Empresa familiar con más de 20 años. +200 reseñas ⭐. Consulta sin compromiso.`
+      : `Blind repair, installation and fly screens in ${zone.name}. Family business with 20+ years experience. +200 five-star reviews. English-speaking team.`;
 
   return {
     title,
@@ -51,17 +52,33 @@ export async function generateMetadata({
       },
     },
     openGraph: {
-      title,
-      description,
+      title: locale === "es" ? `Persianista en ${zone.name} — Persianas Bayres` : `Blind Repair in ${zone.name} — Persianas Bayres`,
+      description: zone.intro.replace(/\n+/g, " ").slice(0, 160),
       url: `${SITE.domain}/${locale}/zonas/${zona}`,
       locale: locale === "en" ? "en_GB" : "es_ES",
     },
   };
 }
 
-const CTA = {
-  es: { home: "Ver todos los servicios" },
-  en: { home: "See all services" },
+const LABELS = {
+  es: {
+    servicesTitle: "Servicios que ofrecemos en la zona",
+    faqTitle: "Preguntas frecuentes",
+    reviewsLabel: "Lo que dicen nuestros clientes",
+    nearbyTitle: "Otras zonas cercanas",
+    breadcrumbHome: "Inicio",
+    breadcrumbZones: "Zonas",
+    formCta: "Pedir presupuesto",
+  },
+  en: {
+    servicesTitle: "Services we offer in the area",
+    faqTitle: "Frequently asked questions",
+    reviewsLabel: "What our customers say",
+    nearbyTitle: "Other nearby areas",
+    breadcrumbHome: "Home",
+    breadcrumbZones: "Areas",
+    formCta: "Request a quote",
+  },
 } as const;
 
 export default async function ZonaPage({
@@ -71,103 +88,172 @@ export default async function ZonaPage({
 }) {
   const { locale: rawLocale, zona } = await params;
   const locale = isLocale(rawLocale) ? rawLocale : DEFAULT_LOCALE;
-  const zone = await getZone(locale, zona);
+  const zonesDetail = await getZonesDetail(locale);
+  const zone = zonesDetail[zona as ZoneSlug];
 
   if (!zone) {
     notFound();
   }
 
-  const cta = CTA[locale];
+  const [reviews] = await Promise.all([getContent<ReviewContent[]>(locale, "reviews")]);
+  const labels = LABELS[locale];
+
+  const currentLocation = LOCATIONS.find((location) => location.slug === zona);
+  const nearby = LOCATIONS.filter((location) => location.slug !== zona).slice(0, 3);
+  const review = reviews[(currentLocation?.priority ?? 0) % reviews.length];
 
   return (
-    <main className="px-4 py-16 sm:px-6">
+    <main>
       <SchemaLocalBusiness locale={locale} areaServed={[zone.name]} />
+      <SchemaFAQ items={zone.faq} />
+      <SchemaBreadcrumb
+        items={[
+          { name: labels.breadcrumbHome, url: `${SITE.domain}/${locale}` },
+          { name: labels.breadcrumbZones, url: `${SITE.domain}/${locale}/zonas` },
+          { name: zone.name, url: `${SITE.domain}/${locale}/zonas/${zona}` },
+        ]}
+      />
 
-      <div className="mx-auto max-w-3xl">
-        <h1 className="font-heading text-3xl text-white sm:text-4xl">
-          {locale === "es"
-            ? `Persianista en ${zone.name}`
-            : `Blind & fly screen repair in ${zone.name}`}
-        </h1>
-
-        {/* TODO Prompt 5: reemplazar este copy genérico por contenido hiperlocal por zona */}
-        {locale === "es" ? (
-          <div className="mt-6 space-y-4 text-white/70">
-            <p>
-              Persianas Bayres presta servicio en {zone.name} desde hace más de
-              20 años. Somos una empresa familiar de Mutxamel, Alicante, con
-              tres generaciones dedicadas a la reparación, instalación y
-              motorización de persianas, además de la instalación de
-              mosquiteras a medida.
-            </p>
-            <p>
-              Si vivís en {zone.name} y tenés una persiana que no sube, una
-              cinta rota, un motor que dejó de funcionar, o simplemente
-              querés instalar mosquiteras nuevas, podemos ayudarte. También
-              hacemos instalación de aire acondicionado y pequeños trabajos
-              de electricidad doméstica en la zona.
-            </p>
-            <p>
-              Trabajamos con presupuesto claro antes de empezar, sin
-              sorpresas ni cobros ocultos. Priorizamos las urgencias —
-              sabemos que una persiana rota no puede esperar. Y si preferís
-              hablar en inglés, nuestro equipo atiende sin problema, algo que
-              valoran especialmente los vecinos británicos y nórdicos de la
-              Costa Blanca.
-            </p>
-            <p>
-              Con más de 200 reseñas de 5 estrellas en Google, la mayoría de
-              nuestros clientes en {zone.name} y alrededores nos conocen por
-              el boca a boca. Escribinos por WhatsApp o llamanos y te
-              respondemos rápido para coordinar una visita.
-            </p>
-          </div>
-        ) : (
-          <div className="mt-6 space-y-4 text-white/70">
-            <p>
-              Persianas Bayres has been serving {zone.name} for over 20
-              years. We are a family-run business based in Mutxamel,
-              Alicante, with three generations dedicated to blind repair,
-              installation and motorisation, as well as made-to-measure fly
-              screen installation.
-            </p>
-            <p>
-              If you live in {zone.name} and have a blind that won&apos;t
-              go up, a broken strap, a motor that stopped working, or you
-              simply want new fly screens fitted, we can help. We also
-              install air conditioning and handle small home electrics jobs
-              in the area.
-            </p>
-            <p>
-              We work with a clear quote before starting, no surprises and
-              no hidden charges. Urgent jobs get priority — we know a broken
-              blind can&apos;t wait. And our team speaks English without any
-              problem, something that British and Nordic residents of the
-              Costa Blanca particularly value.
-            </p>
-            <p>
-              With over 200 five-star reviews on Google, most of our
-              customers in {zone.name} and the surrounding area find us
-              through word of mouth. Message us on WhatsApp or give us a
-              call and we&apos;ll get back to you quickly to arrange a
-              visit.
-            </p>
-          </div>
-        )}
-
-        <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-          <WhatsAppButton
-            locale={locale}
-            className="justify-center px-6 py-3 text-base"
-          />
-          <Link
-            href={`/${locale}/servicios`}
-            className="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-base font-medium text-white transition-colors hover:bg-white/10"
-          >
-            {cta.home}
-          </Link>
+      <section className="bg-gradient-to-b from-primary/10 to-transparent px-4 py-16 sm:px-6 sm:py-24">
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-white/80">
+            {zone.hero.badge}
+          </span>
+          <h1 className="mt-6 font-heading text-4xl text-white sm:text-5xl">
+            {zone.hero.title}
+          </h1>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-white/70">
+            {zone.hero.subtitle}
+          </p>
         </div>
-      </div>
+      </section>
+
+      <section className="px-4 py-4 sm:px-6">
+        <div className="mx-auto max-w-2xl space-y-4 text-center text-white/70">
+          {zone.intro.split("\n\n").map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))}
+        </div>
+      </section>
+
+      <section className="px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-center font-heading text-2xl text-white sm:text-3xl">
+            {zone.localContext.title}
+          </h2>
+          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {zone.localContext.points.map((point) => (
+              <div
+                key={point}
+                className="flex gap-3 rounded-2xl border border-white/10 bg-white/5 p-5"
+              >
+                <span className="text-emerald-400" aria-hidden="true">
+                  ✓
+                </span>
+                <p className="text-sm text-white/80">{point}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="text-center font-heading text-2xl text-white sm:text-3xl">
+            {labels.servicesTitle}
+          </h2>
+          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+            {zone.servicesOffered.map((service) => (
+              <div
+                key={service.title}
+                className="rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-primary-light/40 hover:bg-white/10"
+              >
+                <span className="text-3xl">{service.icon}</span>
+                <h3 className="mt-4 font-heading text-lg text-white">
+                  {service.title}
+                </h3>
+                <p className="mt-2 text-sm text-white/70">{service.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="text-center font-heading text-2xl text-white sm:text-3xl">
+            {labels.faqTitle}
+          </h2>
+          <div className="mt-8">
+            <FAQAccordion items={zone.faq} />
+          </div>
+        </div>
+      </section>
+
+      {review && (
+        <section className="px-4 py-16 sm:px-6">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="text-sm font-medium uppercase tracking-wide text-primary-light">
+              {labels.reviewsLabel}
+            </span>
+            <figure className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-6">
+              <div aria-hidden="true" className="text-primary-light">
+                {"★".repeat(review.stars)}
+              </div>
+              <blockquote className="mt-3 text-white/80">
+                &ldquo;{review.text}&rdquo;
+              </blockquote>
+              <figcaption className="mt-4 text-sm text-white/50">
+                {review.flag} {review.name} · {review.source}
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+      )}
+
+      <section className="bg-primary px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="font-heading text-3xl text-white sm:text-4xl">
+            {zone.cta.title}
+          </h2>
+          <p className="mt-3 text-white/80">{zone.cta.subtitle}</p>
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <WhatsAppButton
+              locale={locale}
+              className="justify-center bg-white px-6 py-3 text-base text-primary hover:bg-white/90"
+            />
+            <Link
+              href={`/${locale}/contacto`}
+              className="inline-flex items-center justify-center rounded-full border border-white/40 px-6 py-3 text-base font-medium text-white transition-colors hover:bg-white/10"
+            >
+              {labels.formCta}
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="text-center font-heading text-2xl text-white sm:text-3xl">
+            {labels.nearbyTitle}
+          </h2>
+          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+            {nearby.map((location) => {
+              const nearbyZone = zonesDetail[location.slug];
+              return (
+                <Link
+                  key={location.slug}
+                  href={`/${locale}/zonas/${location.slug}`}
+                  className="rounded-2xl border border-white/10 bg-white/5 p-5 transition-colors hover:border-primary-light/40 hover:bg-white/10"
+                >
+                  <p className="font-heading text-lg text-white">{nearbyZone.name}</p>
+                  <p className="mt-1 text-sm text-white/60">{nearbyZone.hero.subtitle}</p>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

@@ -39,6 +39,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   for (const locale of LOCALES) {
+    routes.push({
+      url: `${SITE.domain}/${locale}/zonas`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    });
     for (const location of LOCATIONS) {
       routes.push({
         url: `${SITE.domain}/${locale}/zonas/${location.slug}`,

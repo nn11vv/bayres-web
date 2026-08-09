@@ -109,6 +109,42 @@ export interface ZoneContent {
   coordinates: Coordinates;
 }
 
+export interface ZoneDetailContent {
+  name: string;
+  slug: ZoneSlug;
+  hero: {
+    title: string;
+    subtitle: string;
+    badge: string;
+  };
+  intro: string;
+  localContext: {
+    title: string;
+    points: string[];
+  };
+  servicesOffered: {
+    icon: string;
+    title: string;
+    description: string;
+  }[];
+  faq: {
+    question: string;
+    answer: string;
+  }[];
+  cta: {
+    title: string;
+    subtitle: string;
+  };
+}
+
+export interface ServiceFaqContent {
+  slug: ServiceSlug;
+  faq: {
+    question: string;
+    answer: string;
+  }[];
+}
+
 export interface NavItem {
   label: string;
   href: string;

@@ -21,6 +21,10 @@ const contentLoaders: Record<string, (locale: Locale) => Promise<unknown>> = {
   reviews: (locale) =>
     import(`../content/${locale}/reviews`).then((m) => m.reviews),
   zones: (locale) => import(`../content/${locale}/zones`).then((m) => m.zones),
+  "zones-detail": (locale) =>
+    import(`../content/${locale}/zones-detail`).then((m) => m.zonesDetail),
+  "services-faq": (locale) =>
+    import(`../content/${locale}/services-faq`).then((m) => m.servicesFaq),
   nav: (locale) => import(`../content/${locale}/nav`).then((m) => m.nav),
 };
 
