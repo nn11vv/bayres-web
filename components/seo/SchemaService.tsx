@@ -1,14 +1,40 @@
-import type { Locale, ServiceSlug } from "@/lib/types";
+import { SITE } from "@/lib/constants";
+import type { Locale } from "@/lib/types";
 
-// Placeholder — JSON-LD Service schema lands in the SEO pass.
+type Props = {
+  locale: Locale;
+  serviceName: string;
+  description: string;
+  slug: string;
+};
+
 export default function SchemaService({
   locale,
+  serviceName,
+  description,
   slug,
-}: {
-  locale: Locale;
-  slug: ServiceSlug;
-}) {
-  void locale;
-  void slug;
-  return null;
+}: Props) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${SITE.domain}/${locale}/servicios/${slug}#service`,
+    name: serviceName,
+    description,
+    serviceType: serviceName,
+    url: `${SITE.domain}/${locale}/servicios/${slug}`,
+    areaServed: {
+      "@type": "State",
+      name: "Alicante",
+    },
+    provider: {
+      "@id": `${SITE.domain}/#business`,
+    },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
 }

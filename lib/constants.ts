@@ -72,6 +72,40 @@ export const SERVICES: Service[] = [
   { slug: "electricidad", category: "secondary", available: true },
 ];
 
+export const SITE = {
+  domain: DOMAIN,
+  name: "Persianas Bayres",
+  legalName: "Persianas Bayres",
+  founder: "Julián",
+  team: ["Julián", "Juan", "Valentín"],
+  founded: 2005, // placeholder — ajustar cuando se confirme el año real
+  location: {
+    city: "Mutxamel",
+    region: "Alicante",
+    country: "España",
+    countryCode: "ES",
+    lat: 38.4354894,
+    lng: -0.4322725,
+  },
+  phones: {
+    es: TELEFONO_ES,
+    en: TELEFONO_EN,
+  },
+  whatsapp: {
+    es: WHATSAPP_ES,
+    en: WHATSAPP_EN,
+  },
+  email: "info@persianasbayres.com", // placeholder — verificar el email real
+  social: {
+    google: "https://www.google.com/maps/place/Persianas+Bayres",
+  },
+  reviews: {
+    count: 200,
+    average: 5.0,
+    platform: "Google",
+  },
+} as const;
+
 export const BUSINESS_INFO: BusinessInfo = {
   name: "Persianas Bayres",
   legalName: "Persianas Bayres",

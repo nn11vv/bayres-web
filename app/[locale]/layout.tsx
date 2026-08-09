@@ -1,6 +1,7 @@
 import { LOCALES, isLocale, DEFAULT_LOCALE } from "@/lib/i18n";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import HtmlLangSync from "@/components/seo/HtmlLangSync";
 
 export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
@@ -18,6 +19,7 @@ export default async function LocaleLayout({
 
   return (
     <>
+      <HtmlLangSync locale={locale} />
       <Navbar locale={locale} />
       {children}
       <Footer locale={locale} />
