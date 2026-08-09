@@ -92,7 +92,7 @@ export const BUSINESS_INFO: BusinessInfo = {
   },
   social: {},
   reviews: {
-    count: 177,
+    count: 203,
     rating: 5,
     source: "Google",
   },

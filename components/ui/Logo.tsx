@@ -1,64 +1,47 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-type LogoVariant = "color" | "white";
-type LogoType = "full" | "icon";
+type LogoVariant = "blue" | "black" | "transparent";
 type LogoSize = "sm" | "md" | "lg" | "xl";
 
 type LogoProps = {
   variant?: LogoVariant;
-  type?: LogoType;
   size?: LogoSize;
   priority?: boolean;
   className?: string;
 };
 
-const SIZES: Record<LogoType, Record<LogoSize, { width: number; height: number }>> = {
-  full: {
-    sm: { width: 120, height: 33 },
-    md: { width: 180, height: 49 },
-    lg: { width: 240, height: 65 },
-    xl: { width: 320, height: 87 },
-  },
-  icon: {
-    sm: { width: 24, height: 25 },
-    md: { width: 36, height: 37 },
-    lg: { width: 48, height: 49 },
-    xl: { width: 64, height: 66 },
-  },
+const LOGO_MAP: Record<LogoVariant, string> = {
+  blue: "/logo/PB_Logotipo.png",
+  black: "/logo/PB_Logo_BL.png",
+  transparent: "/logo/Logo_alternativo.png",
 };
 
-const FILE_SUFFIX: Record<LogoType, Record<LogoVariant, string>> = {
-  full: {
-    color: "logo-persianas-bayres-color.svg",
-    white: "logo-persianas-bayres-white.svg",
-  },
-  icon: {
-    color: "logo-persianas-bayres-isotipo.svg",
-    white: "logo-persianas-bayres-isotipo-white.svg",
-  },
+const SIZE_MAP: Record<LogoSize, { width: number; height: number }> = {
+  sm: { width: 120, height: 120 },
+  md: { width: 160, height: 160 },
+  lg: { width: 220, height: 220 },
+  xl: { width: 300, height: 300 },
 };
 
 const ALT_TEXT = "Persianas Bayres — Servicios para el hogar en Alicante";
 
 export default function Logo({
-  variant = "color",
-  type = "full",
+  variant = "blue",
   size = "md",
   priority = false,
   className,
 }: LogoProps) {
-  const { width, height } = SIZES[type][size];
-  const src = `/logo/${FILE_SUFFIX[type][variant]}`;
+  const { width, height } = SIZE_MAP[size];
 
   return (
     <Image
-      src={src}
+      src={LOGO_MAP[variant]}
       alt={ALT_TEXT}
       width={width}
       height={height}
       priority={priority}
-      className={cn("h-auto w-auto", className)}
+      className={cn(className)}
     />
   );
 }

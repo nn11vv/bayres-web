@@ -1,10 +1,17 @@
-import type { NavItem } from "@/lib/types";
+import type { NavContent } from "@/lib/types";
 
-export const nav: NavItem[] = [
-  { label: "", href: "/es" },
-  { label: "", href: "/es/servicios" },
-  { label: "", href: "/es/zonas" },
-  { label: "", href: "/es/nosotros" },
-  { label: "", href: "/es/blog" },
-  { label: "", href: "/es/contacto" },
-];
+export const nav: NavContent = {
+  menu: [
+    { label: "Servicios", href: "/es/servicios" },
+    { label: "Reseñas", href: "/es#resenas" },
+    { label: "Contacto", href: "/es/contacto" },
+  ],
+  footer: {
+    privacyPolicy: "Política de privacidad",
+    terms: "Términos y condiciones",
+  },
+  social: {
+    facebook: "Facebook",
+    instagram: "Instagram",
+  },
+};

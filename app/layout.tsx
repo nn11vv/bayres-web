@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 const DESCRIPTION =
-  "Reparación, instalación y motorización de persianas y mosquiteras en Alicante. Empresa familiar con más de 20 años y 177 reseñas ⭐";
+  "Reparación, instalación y motorización de persianas y mosquiteras en Alicante. Empresa familiar con más de 20 años y +200 reseñas ⭐";
 
 export const metadata: Metadata = {
   metadataBase: new URL(DOMAIN),
@@ -25,15 +25,15 @@ export const metadata: Metadata = {
     siteName: "Persianas Bayres",
     images: [
       {
-        url: "/logo/logo-persianas-bayres-color.svg",
-        width: 480,
-        height: 130,
+        url: "/logo/Logo_alternativo.png",
+        width: 504,
+        height: 504,
         alt: "Persianas Bayres",
       },
     ],
   },
   icons: {
-    icon: "/icon.svg",
+    icon: "/icon.png",
     apple: "/apple-icon.png",
   },
 };

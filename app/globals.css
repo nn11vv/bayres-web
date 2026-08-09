@@ -30,3 +30,85 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
+
+/* Service icon animations — components/ui/ServiceIcons.tsx */
+@keyframes slat-sway {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(2px);
+  }
+}
+
+@keyframes mosquito-fly {
+  0%,
+  15% {
+    transform: translate(0, 3px) rotate(0deg);
+    opacity: 1;
+  }
+  55% {
+    transform: translate(15px, -5px) rotate(10deg);
+    opacity: 1;
+  }
+  70%,
+  100% {
+    transform: translate(17px, -6px) rotate(10deg);
+    opacity: 0;
+  }
+}
+
+@keyframes wing-flutter {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.5);
+  }
+}
+
+@keyframes cold-wave {
+  0% {
+    transform: translateX(-3px);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateX(3px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-3px);
+    opacity: 0.35;
+  }
+}
+
+@keyframes snow-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bolt-glow {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes spark-flicker {
+  0%,
+  60%,
+  100% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+}

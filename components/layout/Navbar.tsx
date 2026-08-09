@@ -9,7 +9,12 @@ export default function Navbar({ locale }: { locale: Locale }) {
     <header className="sticky top-0 z-50 border-b border-white/10 bg-dark/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <Link href={`/${locale}`} className="shrink-0">
-          <Logo variant="white" size="md" priority />
+          <Logo
+            variant="blue"
+            size="md"
+            priority
+            className="h-14 w-14 rounded-lg sm:h-16 sm:w-16"
+          />
         </Link>
 
         <div className="flex items-center gap-3 sm:gap-4">

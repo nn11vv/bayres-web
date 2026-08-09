@@ -41,20 +41,57 @@ export interface HomeContent {
   hero: {
     badge: string;
     headline: string;
+    headlineAccent: string;
     subheadline: string;
     ctaWhatsApp: string;
     ctaForm: string;
+    trustPills: string[];
   };
-  formPromise: string;
-  pills: string[];
+  services: {
+    label: string;
+    title: string;
+    subtitle: string;
+    secondaryLabel: string;
+  };
+  whyUs: {
+    label: string;
+    title: string;
+    subtitle: string;
+    pillars: {
+      icon: string;
+      title: string;
+      description: string;
+    }[];
+  };
+  reviews: {
+    label: string;
+    title: string;
+    subtitle: string;
+    ctaViewAll: string;
+  };
+  zones: {
+    label: string;
+    title: string;
+    subtitle: string;
+    extendedNote: string;
+  };
+  contact: {
+    label: string;
+    title: string;
+    subtitle: string;
+    formTitle: string;
+    formSubtitle: string;
+  };
 }
 
 export interface ServiceContent {
   slug: ServiceSlug;
-  title: string;
-  description: string;
   icon: string;
   category: ServiceCategory;
+  title: string;
+  shortDescription: string;
+  longDescription: string;
+  features: string[];
 }
 
 export interface ReviewContent {
@@ -76,6 +113,18 @@ export interface NavItem {
   label: string;
   href: string;
   children?: NavItem[];
+}
+
+export interface NavContent {
+  menu: NavItem[];
+  footer: {
+    privacyPolicy: string;
+    terms: string;
+  };
+  social: {
+    facebook: string;
+    instagram: string;
+  };
 }
 
 export interface BusinessInfo {
