@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-type LogoVariant = "blue" | "black" | "transparent";
+type LogoVariant = "blue" | "black" | "transparent" | "white";
 type LogoSize = "sm" | "md" | "lg" | "xl";
 
 type LogoProps = {
@@ -15,13 +15,14 @@ const LOGO_MAP: Record<LogoVariant, string> = {
   blue: "/logo/PB_Logotipo.png",
   black: "/logo/PB_Logo_BL.png",
   transparent: "/logo/Logo_alternativo.png",
+  white: "/logo/PB_Logo_transparent_white.png",
 };
 
 const SIZE_MAP: Record<LogoSize, { width: number; height: number }> = {
-  sm: { width: 120, height: 120 },
-  md: { width: 160, height: 160 },
-  lg: { width: 220, height: 220 },
-  xl: { width: 300, height: 300 },
+  sm: { width: 100, height: 100 },
+  md: { width: 140, height: 140 },
+  lg: { width: 180, height: 180 },
+  xl: { width: 240, height: 240 },
 };
 
 const ALT_TEXT = "Persianas Bayres — Servicios para el hogar en Alicante";
