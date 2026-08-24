@@ -6,6 +6,7 @@ import {
   WHATSAPP_EN,
 } from "@/lib/constants";
 import { getContent } from "@/lib/i18n";
+import { cn } from "@/lib/utils";
 import type { HomeContent, Locale, ServiceContent } from "@/lib/types";
 
 const CONTACT_OPTIONS = (locale: Locale) => [
@@ -13,11 +14,13 @@ const CONTACT_OPTIONS = (locale: Locale) => [
     label: locale === "es" ? "WhatsApp (español)" : "WhatsApp (Spanish)",
     value: "+34 695 266 981",
     href: WHATSAPP_ES,
+    whatsapp: true,
   },
   {
     label: locale === "es" ? "WhatsApp (inglés)" : "WhatsApp (English)",
     value: "+34 663 208 814",
     href: WHATSAPP_EN,
+    whatsapp: true,
   },
   {
     label: locale === "es" ? "Teléfono (español)" : "Phone (Spanish)",
@@ -58,7 +61,12 @@ export default async function Contact({ locale }: { locale: Locale }) {
               href={option.href}
               target={option.href.startsWith("http") ? "_blank" : undefined}
               rel={option.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="rounded-2xl border border-white/10 bg-white/5 p-4 transition-colors hover:border-primary-bright/40 hover:bg-white/10"
+              className={cn(
+                "rounded-2xl border border-white/10 bg-white/5 p-4 transition-colors hover:bg-white/10",
+                option.whatsapp
+                  ? "hover:border-whatsapp/50"
+                  : "hover:border-primary-bright/40",
+              )}
             >
               <p className="text-sm text-white/50">{option.label}</p>
               <p className="mt-1 font-medium text-white">{option.value}</p>

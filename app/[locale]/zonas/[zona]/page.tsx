@@ -217,10 +217,10 @@ export default async function ZonaPage({
             {zone.cta.title}
           </h2>
           <p className="mt-3 text-white/80">{zone.cta.subtitle}</p>
-          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <WhatsAppButton
               locale={locale}
-              className="justify-center bg-white px-6 py-3 text-base text-primary hover:bg-white/90"
+              className="justify-center px-6 py-3 text-base"
             />
             <Link
               href={`/${locale}/contacto`}

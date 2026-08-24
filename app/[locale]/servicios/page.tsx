@@ -158,7 +158,7 @@ export default async function ServiciosPage({
           <div className="mt-6 flex justify-center">
             <WhatsAppButton
               locale={locale}
-              className="justify-center bg-white px-6 py-3 text-base text-primary hover:bg-white/90"
+              className="justify-center px-6 py-3 text-base"
             />
           </div>
         </div>

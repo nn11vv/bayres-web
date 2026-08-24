@@ -16,6 +16,10 @@
   --color-white: #ffffff;
   --color-dark: #0b0f1a;
 
+  /* WhatsApp brand green — reserved for CTAs that open a wa.me chat. */
+  --color-whatsapp: #25d366;
+  --color-whatsapp-dark: #20bf5a;
+
   --font-sans: var(--font-inter);
   --font-heading: "Arial Black", Arial, sans-serif;
 }

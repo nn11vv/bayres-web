@@ -1,6 +1,7 @@
 import { LOCALES, isLocale, DEFAULT_LOCALE } from "@/lib/i18n";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp";
 import HtmlLangSync from "@/components/seo/HtmlLangSync";
 
 export function generateStaticParams() {
@@ -22,6 +23,7 @@ export default async function LocaleLayout({
       <HtmlLangSync locale={locale} />
       <Navbar locale={locale} />
       {children}
+      <FloatingWhatsApp locale={locale} />
       <Footer locale={locale} />
     </>
   );

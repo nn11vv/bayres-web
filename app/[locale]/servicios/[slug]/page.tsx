@@ -157,7 +157,7 @@ export default async function ServiceDetailPage({
           <p className="mx-auto mt-4 max-w-2xl text-lg text-white/70">
             {service.longDescription}
           </p>
-          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <WhatsAppButton
               locale={locale}
               className="justify-center px-6 py-3 text-base"
@@ -253,7 +253,7 @@ export default async function ServiceDetailPage({
           <div className="mt-8 flex justify-center">
             <WhatsAppButton
               locale={locale}
-              className="justify-center bg-white px-6 py-3 text-base text-primary hover:bg-white/90"
+              className="justify-center px-6 py-3 text-base"
             />
           </div>
         </div>
