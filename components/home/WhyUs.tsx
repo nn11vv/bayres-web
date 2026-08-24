@@ -9,7 +9,7 @@ export default async function WhyUs({ locale }: { locale: Locale }) {
     <section className="px-4 py-16 sm:px-6">
       <div className="mx-auto max-w-5xl">
         <div className="text-center">
-          <span className="text-sm font-medium uppercase tracking-wide text-primary-light">
+          <span className="text-sm font-medium uppercase tracking-wide text-primary-bright">
             {whyUs.label}
           </span>
           <h2 className="mt-2 font-heading text-3xl text-white sm:text-4xl">

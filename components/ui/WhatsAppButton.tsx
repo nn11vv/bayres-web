@@ -7,11 +7,24 @@ const WHATSAPP_URL: Record<Locale, string> = {
   en: WHATSAPP_EN,
 };
 
+// "solid" is the default brand button; "onPrimary" inverts it for the
+// primary-blue navbar, where a blue-on-blue button would disappear.
+type WhatsAppVariant = "solid" | "onPrimary";
+
+const VARIANT_STYLES: Record<WhatsAppVariant, string> = {
+  solid: "bg-primary text-white hover:bg-primary-bright",
+  onPrimary: "bg-white text-primary hover:bg-primary-soft hover:text-white",
+};
+
 export default function WhatsAppButton({
   locale,
+  label = "WhatsApp",
+  variant = "solid",
   className,
 }: {
   locale: Locale;
+  label?: string;
+  variant?: WhatsAppVariant;
   className?: string;
 }) {
   return (
@@ -20,7 +33,8 @@ export default function WhatsAppButton({
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-light",
+        "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors",
+        VARIANT_STYLES[variant],
         className,
       )}
     >
@@ -31,7 +45,7 @@ export default function WhatsAppButton({
       >
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-1.746-.873-2.888-1.559-4.036-3.535-.305-.524.305-.487.874-1.62.098-.198.049-.371-.05-.52-.099-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.05 3.132 4.987 4.27 2.937 1.14 2.937.76 3.464.71.528-.05 1.706-.698 1.955-1.372.248-.673.248-1.25.173-1.372-.074-.123-.272-.198-.57-.347zM12.05 22c-1.744 0-3.454-.469-4.951-1.359l-.355-.213-3.686.968.983-3.593-.232-.369A9.869 9.869 0 0 1 2 12.06C2 6.503 6.522 2 12.05 2c2.647 0 5.135 1.032 7.007 2.906A9.815 9.815 0 0 1 22 12.06c0 5.556-4.522 9.94-9.95 9.94Zm8.412-18.31A11.815 11.815 0 0 0 12.05 0C5.417 0 .017 5.42.014 12.06a11.98 11.98 0 0 0 1.694 6.163L0 24l5.938-1.555a11.93 11.93 0 0 0 5.9 1.507h.005c6.633 0 12.033-5.42 12.036-12.06a12.02 12.02 0 0 0-3.417-8.402Z" />
       </svg>
-      <span className="hidden sm:inline">WhatsApp</span>
+      <span className="hidden sm:inline">{label}</span>
     </a>
   );
 }

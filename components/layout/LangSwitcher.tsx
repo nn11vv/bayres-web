@@ -20,7 +20,7 @@ export default function LangSwitcher({ locale }: { locale: Locale }) {
   }
 
   return (
-    <div className="inline-flex items-center rounded-full border border-white/15 bg-white/5 p-1 text-xs font-medium">
+    <div className="inline-flex items-center rounded-full border border-white/20 bg-white/10 p-1 text-xs font-medium">
       {LOCALES.map((option) => (
         <button
           key={option}
@@ -29,7 +29,9 @@ export default function LangSwitcher({ locale }: { locale: Locale }) {
           aria-current={option === locale}
           className={cn(
             "rounded-full px-2.5 py-1 uppercase tracking-wide transition-colors",
-            option === locale ? "bg-primary text-white" : "text-white/50 hover:text-white/80",
+            option === locale
+              ? "bg-white text-primary"
+              : "text-white/70 hover:text-white",
           )}
         >
           {option}

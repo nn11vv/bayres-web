@@ -78,7 +78,7 @@ export default async function ZonasPage({
           <p className="mx-auto mt-3 max-w-xl text-white/70">{current.description}</p>
         </div>
 
-        <h2 className="mt-12 text-sm font-medium uppercase tracking-wide text-primary-light">
+        <h2 className="mt-12 text-sm font-medium uppercase tracking-wide text-primary-bright">
           {sectionLabel.core}
         </h2>
         <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -88,7 +88,7 @@ export default async function ZonasPage({
               <Link
                 key={location.slug}
                 href={`/${locale}/zonas/${location.slug}`}
-                className="rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-primary-light/40 hover:bg-white/10"
+                className="rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-primary-bright/40 hover:bg-white/10"
               >
                 <h3 className="font-heading text-xl text-white">{zone.name}</h3>
                 <p className="mt-2 text-sm text-white/70">{zone.hero.subtitle}</p>
@@ -107,7 +107,7 @@ export default async function ZonasPage({
               <Link
                 key={location.slug}
                 href={`/${locale}/zonas/${location.slug}`}
-                className="rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-primary-light/40 hover:bg-white/10"
+                className="rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-primary-bright/40 hover:bg-white/10"
               >
                 <h3 className="font-heading text-xl text-white">{zone.name}</h3>
                 <p className="mt-2 text-sm text-white/70">{zone.hero.subtitle}</p>

@@ -25,7 +25,7 @@ export default function FAQAccordion({ items }: { items: FAQItem[] }) {
               <span
                 aria-hidden="true"
                 className={cn(
-                  "shrink-0 text-primary-light transition-transform",
+                  "shrink-0 text-primary-bright transition-transform",
                   isOpen && "rotate-45",
                 )}
               >

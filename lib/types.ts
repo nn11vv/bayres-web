@@ -153,6 +153,7 @@ export interface NavItem {
 
 export interface NavContent {
   menu: NavItem[];
+  ctaWhatsApp: string;
   footer: {
     privacyPolicy: string;
     terms: string;

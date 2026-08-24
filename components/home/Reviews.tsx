@@ -6,7 +6,7 @@ const GOOGLE_REVIEWS_URL =
 
 function Stars({ count }: { count: number }) {
   return (
-    <div aria-hidden="true" className="text-primary-light">
+    <div aria-hidden="true" className="text-primary-bright">
       {"★".repeat(count)}
       <span className="text-white/20">{"★".repeat(Math.max(0, 5 - count))}</span>
     </div>
@@ -23,7 +23,7 @@ export default async function Reviews({ locale }: { locale: Locale }) {
     <section id="resenas" className="px-4 py-16 sm:px-6">
       <div className="mx-auto max-w-5xl">
         <div className="text-center">
-          <span className="text-sm font-medium uppercase tracking-wide text-primary-light">
+          <span className="text-sm font-medium uppercase tracking-wide text-primary-bright">
             {home.reviews.label}
           </span>
           <h2 className="mt-2 font-heading text-3xl text-white sm:text-4xl">

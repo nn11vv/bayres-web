@@ -6,6 +6,7 @@ export const nav: NavContent = {
     { label: "Reviews", href: "/en#resenas" },
     { label: "Contact", href: "/en/contacto" },
   ],
+  ctaWhatsApp: "Chat with me",
   footer: {
     privacyPolicy: "Privacy policy",
     terms: "Terms and conditions",

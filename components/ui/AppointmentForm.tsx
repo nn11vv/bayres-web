@@ -49,7 +49,7 @@ function buildTimeSlots(): string[] {
 const TIME_SLOTS = buildTimeSlots();
 
 const fieldClass =
-  "w-full rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/40 focus:border-primary-light focus:outline-none";
+  "w-full rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/40 focus:border-primary-bright focus:outline-none";
 
 export default function AppointmentForm({
   locale,
@@ -95,7 +95,7 @@ export default function AppointmentForm({
   }
 
   if (status === "success") {
-    return <p className="text-sm text-primary-light">{labels.success}</p>;
+    return <p className="text-sm text-primary-bright">{labels.success}</p>;
   }
 
   return (
@@ -158,7 +158,7 @@ export default function AppointmentForm({
           type="submit"
           disabled={status === "loading"}
           className={cn(
-            "w-full rounded-full bg-primary px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-primary-light disabled:opacity-60",
+            "w-full rounded-full bg-primary px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-primary-bright disabled:opacity-60",
           )}
         >
           {status === "loading" ? labels.submitting : labels.submit}

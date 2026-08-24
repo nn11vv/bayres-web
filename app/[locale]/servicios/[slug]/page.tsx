@@ -198,7 +198,7 @@ export default async function ServiceDetailPage({
                 key={step.title}
                 className="rounded-2xl border border-white/10 bg-white/5 p-5"
               >
-                <span className="font-heading text-2xl text-primary-light">
+                <span className="font-heading text-2xl text-primary-bright">
                   {index + 1}
                 </span>
                 <h3 className="mt-3 font-medium text-white">{step.title}</h3>
@@ -219,7 +219,7 @@ export default async function ServiceDetailPage({
               <Link
                 key={location.slug}
                 href={`/${locale}/zonas/${location.slug}`}
-                className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80 transition-colors hover:border-primary-light/40 hover:bg-white/10"
+                className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80 transition-colors hover:border-primary-bright/40 hover:bg-white/10"
               >
                 {location.slug
                   .split("-")

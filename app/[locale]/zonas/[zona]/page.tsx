@@ -166,7 +166,7 @@ export default async function ZonaPage({
             {zone.servicesOffered.map((service) => (
               <div
                 key={service.title}
-                className="rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-primary-light/40 hover:bg-white/10"
+                className="rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-primary-bright/40 hover:bg-white/10"
               >
                 <span className="text-3xl">{service.icon}</span>
                 <h3 className="mt-4 font-heading text-lg text-white">
@@ -193,11 +193,11 @@ export default async function ZonaPage({
       {review && (
         <section className="px-4 py-16 sm:px-6">
           <div className="mx-auto max-w-2xl text-center">
-            <span className="text-sm font-medium uppercase tracking-wide text-primary-light">
+            <span className="text-sm font-medium uppercase tracking-wide text-primary-bright">
               {labels.reviewsLabel}
             </span>
             <figure className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-6">
-              <div aria-hidden="true" className="text-primary-light">
+              <div aria-hidden="true" className="text-primary-bright">
                 {"★".repeat(review.stars)}
               </div>
               <blockquote className="mt-3 text-white/80">
@@ -244,7 +244,7 @@ export default async function ZonaPage({
                 <Link
                   key={location.slug}
                   href={`/${locale}/zonas/${location.slug}`}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-5 transition-colors hover:border-primary-light/40 hover:bg-white/10"
+                  className="rounded-2xl border border-white/10 bg-white/5 p-5 transition-colors hover:border-primary-bright/40 hover:bg-white/10"
                 >
                   <p className="font-heading text-lg text-white">{nearbyZone.name}</p>
                   <p className="mt-1 text-sm text-white/60">{nearbyZone.hero.subtitle}</p>

@@ -13,7 +13,7 @@ function ServiceCard({
   return (
     <Link
       href={`/${locale}/servicios/${service.slug}`}
-      className="group rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-primary-light/40 hover:bg-white/10"
+      className="group rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-primary-bright/40 hover:bg-white/10"
     >
       <ServiceIcon slug={service.slug} className="h-14 w-14" />
       <h3 className="mt-4 font-heading text-xl text-white">{service.title}</h3>
@@ -35,7 +35,7 @@ export default async function Services({ locale }: { locale: Locale }) {
     <section className="px-4 py-16 sm:px-6">
       <div className="mx-auto max-w-5xl">
         <div className="text-center">
-          <span className="text-sm font-medium uppercase tracking-wide text-primary-light">
+          <span className="text-sm font-medium uppercase tracking-wide text-primary-bright">
             {home.services.label}
           </span>
           <h2 className="mt-2 font-heading text-3xl text-white sm:text-4xl">

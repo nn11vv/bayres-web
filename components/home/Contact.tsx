@@ -42,7 +42,7 @@ export default async function Contact({ locale }: { locale: Locale }) {
     <section id="contacto" className="px-4 py-16 sm:px-6">
       <div className="mx-auto max-w-4xl">
         <div className="text-center">
-          <span className="text-sm font-medium uppercase tracking-wide text-primary-light">
+          <span className="text-sm font-medium uppercase tracking-wide text-primary-bright">
             {contact.label}
           </span>
           <h2 className="mt-2 font-heading text-3xl text-white sm:text-4xl">
@@ -58,7 +58,7 @@ export default async function Contact({ locale }: { locale: Locale }) {
               href={option.href}
               target={option.href.startsWith("http") ? "_blank" : undefined}
               rel={option.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="rounded-2xl border border-white/10 bg-white/5 p-4 transition-colors hover:border-primary-light/40 hover:bg-white/10"
+              className="rounded-2xl border border-white/10 bg-white/5 p-4 transition-colors hover:border-primary-bright/40 hover:bg-white/10"
             >
               <p className="text-sm text-white/50">{option.label}</p>
               <p className="mt-1 font-medium text-white">{option.value}</p>
