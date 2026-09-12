@@ -1,4 +1,4 @@
-import type { BusinessInfo, Location, Service } from "./types";
+import type { BusinessInfo, Locale, Location, Service, ServiceSlug } from "./types";
 
 export const TELEFONO_ES = "+34 695 266 981";
 export const TELEFONO_EN = "+34 663 208 814";
@@ -65,12 +65,53 @@ export const LOCATIONS: Location[] = [
   },
 ];
 
+// Service URL slugs are per-locale so /en/servicios/* can carry its own
+// English paths (e.g. for Ads landing pages) independent of the Spanish
+// ones. `id` stays the stable identifier used to look up content
+// (content/{locale}/services.ts etc.) and never changes with locale.
 export const SERVICES: Service[] = [
-  { slug: "persianas", category: "core", available: true },
-  { slug: "mosquiteras", category: "core", available: true },
-  { slug: "aire-acondicionado", category: "secondary", available: true },
-  { slug: "electricidad", category: "secondary", available: true },
+  {
+    id: "persianas",
+    slug: { es: "persianas", en: "blinds" },
+    category: "core",
+    available: true,
+  },
+  {
+    id: "mosquiteras",
+    slug: { es: "mosquiteras", en: "fly-screens" },
+    category: "core",
+    available: true,
+  },
+  {
+    id: "aire-acondicionado",
+    slug: { es: "aire-acondicionado", en: "air-conditioning" },
+    category: "secondary",
+    available: true,
+  },
+  {
+    id: "electricidad",
+    slug: { es: "electricidad", en: "home-electrics" },
+    category: "secondary",
+    available: true,
+  },
 ];
+
+// Resolves the URL slug for a service, in a given locale, from its
+// stable content id (content/{locale}/services.ts `slug` field, which
+// stays the Spanish id in both locales).
+export function serviceSlugFor(id: ServiceSlug, locale: Locale): string {
+  const service = SERVICES.find((entry) => entry.id === id);
+  return service ? service.slug[locale] : id;
+}
+
+// Resolves a service definition from a locale-specific URL slug — the
+// inverse lookup used by app/[locale]/servicios/[slug]/page.tsx.
+export function serviceByLocaleSlug(
+  locale: Locale,
+  slug: string,
+): Service | undefined {
+  return SERVICES.find((entry) => entry.slug[locale] === slug);
+}
 
 export const SITE = {
   domain: DOMAIN,

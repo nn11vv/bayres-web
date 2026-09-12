@@ -4,7 +4,7 @@ import ServiceIcon from "@/components/ui/ServiceIcons";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import { getContent } from "@/lib/i18n";
 import { isLocale, DEFAULT_LOCALE } from "@/lib/i18n";
-import { SITE, LOCATIONS } from "@/lib/constants";
+import { SITE, LOCATIONS, serviceSlugFor } from "@/lib/constants";
 import type { Locale, ReviewContent, ServiceContent } from "@/lib/types";
 
 const META = {
@@ -55,6 +55,7 @@ export async function generateMetadata({
       languages: {
         "es-ES": `${SITE.domain}/es/servicios`,
         "en-GB": `${SITE.domain}/en/servicios`,
+        "x-default": `${SITE.domain}/es/servicios`,
       },
     },
     openGraph: {
@@ -69,7 +70,7 @@ export async function generateMetadata({
 function ServiceCard({ service, locale }: { service: ServiceContent; locale: Locale }) {
   return (
     <Link
-      href={`/${locale}/servicios/${service.slug}`}
+      href={`/${locale}/servicios/${serviceSlugFor(service.slug, locale)}`}
       className="group rounded-2xl border border-white/10 bg-white/5 p-8 transition-colors hover:border-primary-bright/40 hover:bg-white/10"
     >
       <ServiceIcon slug={service.slug} className="h-16 w-16" />

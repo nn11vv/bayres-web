@@ -8,8 +8,14 @@ export type ServiceSlug =
   | "aire-acondicionado"
   | "electricidad";
 
+export interface LocalizedSlug {
+  es: string;
+  en: string;
+}
+
 export interface Service {
-  slug: ServiceSlug;
+  id: ServiceSlug;
+  slug: LocalizedSlug;
   category: ServiceCategory;
   available: boolean;
 }

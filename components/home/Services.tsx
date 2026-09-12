@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ServiceIcon from "@/components/ui/ServiceIcons";
 import { getContent } from "@/lib/i18n";
+import { serviceSlugFor } from "@/lib/constants";
 import type { HomeContent, Locale, ServiceContent } from "@/lib/types";
 
 function ServiceCard({
@@ -12,7 +13,7 @@ function ServiceCard({
 }) {
   return (
     <Link
-      href={`/${locale}/servicios/${service.slug}`}
+      href={`/${locale}/servicios/${serviceSlugFor(service.slug, locale)}`}
       className="group rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-primary-bright/40 hover:bg-white/10"
     >
       <ServiceIcon slug={service.slug} className="h-14 w-14" />

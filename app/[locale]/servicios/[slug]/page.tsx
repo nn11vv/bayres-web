@@ -9,11 +9,19 @@ import SchemaFAQ from "@/components/seo/SchemaFAQ";
 import SchemaBreadcrumb from "@/components/seo/SchemaBreadcrumb";
 import { getContent } from "@/lib/i18n";
 import { isLocale, DEFAULT_LOCALE } from "@/lib/i18n";
-import { SITE, SERVICES, LOCATIONS } from "@/lib/constants";
+import { SITE, SERVICES, LOCATIONS, serviceByLocaleSlug } from "@/lib/constants";
 import type { Locale, ServiceContent, ServiceFaqContent, ServiceSlug } from "@/lib/types";
 
-export function generateStaticParams() {
-  return SERVICES.map((service) => ({ slug: service.slug }));
+// Parent [locale] layout already generates one call of this per locale
+// (es, en) and passes it in via params — each service then contributes
+// its slug for that locale (e.g. "persianas" for es, "blinds" for en).
+export function generateStaticParams({
+  params,
+}: {
+  params: { locale: string };
+}) {
+  const locale = isLocale(params.locale) ? params.locale : DEFAULT_LOCALE;
+  return SERVICES.map((service) => ({ slug: service.slug[locale] }));
 }
 
 const SEO_TITLE: Record<Locale, Record<ServiceSlug, string>> = {
@@ -36,14 +44,20 @@ const SEO_DESCRIPTION_SUFFIX: Record<Locale, string> = {
   en: " +200 five-star reviews. English speaking team.",
 };
 
-async function getService(locale: Locale, slug: string): Promise<ServiceContent | undefined> {
+// `slug` here is the URL slug (locale-specific: "blinds" for en,
+// "persianas" for es) — content is keyed by the stable id instead, so we
+// resolve the SERVICES definition first to get that id.
+async function getService(
+  locale: Locale,
+  id: ServiceSlug,
+): Promise<ServiceContent | undefined> {
   const services = await getContent<ServiceContent[]>(locale, "services");
-  return services.find((service) => service.slug === slug);
+  return services.find((service) => service.slug === id);
 }
 
-async function getServiceFaq(locale: Locale, slug: string) {
+async function getServiceFaq(locale: Locale, id: ServiceSlug) {
   const all = await getContent<ServiceFaqContent[]>(locale, "services-faq");
-  return all.find((entry) => entry.slug === slug)?.faq ?? [];
+  return all.find((entry) => entry.slug === id)?.faq ?? [];
 }
 
 export async function generateMetadata({
@@ -53,13 +67,19 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: rawLocale, slug } = await params;
   const locale = isLocale(rawLocale) ? rawLocale : DEFAULT_LOCALE;
-  const service = await getService(locale, slug);
+  const definition = serviceByLocaleSlug(locale, slug);
+
+  if (!definition) {
+    return {};
+  }
+
+  const service = await getService(locale, definition.id);
 
   if (!service) {
     return {};
   }
 
-  const title = SEO_TITLE[locale][service.slug];
+  const title = SEO_TITLE[locale][definition.id];
   const description = `${service.shortDescription}${SEO_DESCRIPTION_SUFFIX[locale]}`;
 
   return {
@@ -68,8 +88,9 @@ export async function generateMetadata({
     alternates: {
       canonical: `${SITE.domain}/${locale}/servicios/${slug}`,
       languages: {
-        "es-ES": `${SITE.domain}/es/servicios/${slug}`,
-        "en-GB": `${SITE.domain}/en/servicios/${slug}`,
+        "es-ES": `${SITE.domain}/es/servicios/${definition.slug.es}`,
+        "en-GB": `${SITE.domain}/en/servicios/${definition.slug.en}`,
+        "x-default": `${SITE.domain}/es/servicios/${definition.slug.es}`,
       },
     },
     openGraph: {
@@ -119,9 +140,15 @@ export default async function ServiceDetailPage({
 }) {
   const { locale: rawLocale, slug } = await params;
   const locale = isLocale(rawLocale) ? rawLocale : DEFAULT_LOCALE;
+  const definition = serviceByLocaleSlug(locale, slug);
+
+  if (!definition) {
+    notFound();
+  }
+
   const [service, faq] = await Promise.all([
-    getService(locale, slug),
-    getServiceFaq(locale, slug),
+    getService(locale, definition.id),
+    getServiceFaq(locale, definition.id),
   ]);
 
   if (!service) {
@@ -137,7 +164,7 @@ export default async function ServiceDetailPage({
         locale={locale}
         serviceName={service.title}
         description={service.longDescription}
-        slug={service.slug}
+        slug={slug}
       />
       {faq.length > 0 && <SchemaFAQ items={faq} />}
       <SchemaBreadcrumb
