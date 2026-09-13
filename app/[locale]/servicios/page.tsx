@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import ServiceIcon from "@/components/ui/ServiceIcons";
+import ServiceCard from "@/components/home/ServiceCard";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import { getContent } from "@/lib/i18n";
 import { isLocale, DEFAULT_LOCALE } from "@/lib/i18n";
-import { SITE, LOCATIONS, serviceSlugFor } from "@/lib/constants";
-import type { Locale, ReviewContent, ServiceContent } from "@/lib/types";
+import { SITE, LOCATIONS } from "@/lib/constants";
+import type { ReviewContent, ServiceContent } from "@/lib/types";
 
 const META = {
   es: {
@@ -67,19 +67,6 @@ export async function generateMetadata({
   };
 }
 
-function ServiceCard({ service, locale }: { service: ServiceContent; locale: Locale }) {
-  return (
-    <Link
-      href={`/${locale}/servicios/${serviceSlugFor(service.slug, locale)}`}
-      className="group rounded-2xl border border-white/10 bg-white/5 p-8 transition-colors hover:border-primary-bright/40 hover:bg-white/10"
-    >
-      <ServiceIcon slug={service.slug} className="h-16 w-16" />
-      <h2 className="mt-5 font-heading text-2xl text-white">{service.title}</h2>
-      <p className="mt-2 text-white/70">{service.longDescription}</p>
-    </Link>
-  );
-}
-
 export default async function ServiciosPage({
   params,
 }: {
@@ -95,7 +82,7 @@ export default async function ServiciosPage({
   const featuredReviews = reviews.slice(0, 3);
 
   return (
-    <main className="px-4 py-16 sm:px-6">
+    <main className="px-4 py-24 sm:px-6 sm:py-28">
       <div className="mx-auto max-w-5xl">
         <div className="text-center">
           <span className="text-sm font-medium uppercase tracking-wide text-primary-bright">
@@ -112,9 +99,9 @@ export default async function ServiciosPage({
           ))}
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {services.map((service) => (
-            <ServiceCard key={service.slug} service={service} locale={locale} />
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
+          {services.map((service, index) => (
+            <ServiceCard key={service.slug} service={service} locale={locale} index={index} />
           ))}
         </div>
 
@@ -131,13 +118,13 @@ export default async function ServiciosPage({
           <h2 className="text-center text-sm font-medium uppercase tracking-wide text-primary-bright">
             {current.reviewsLabel}
           </h2>
-          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-3">
             {featuredReviews.map((review) => (
               <figure
                 key={review.name}
-                className="rounded-2xl border border-white/10 bg-white/5 p-6"
+                className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6"
               >
-                <div aria-hidden="true" className="text-primary-bright">
+                <div aria-hidden="true" className="text-primary">
                   {"★".repeat(review.stars)}
                 </div>
                 <blockquote className="mt-3 text-sm text-white/80">
@@ -151,7 +138,7 @@ export default async function ServiciosPage({
           </div>
         </div>
 
-        <div className="mt-16 rounded-2xl bg-primary p-10 text-center">
+        <div className="mt-16 rounded-2xl border border-white/10 bg-gradient-to-br from-primary/20 to-transparent p-10 text-center">
           <h2 className="font-heading text-2xl text-white sm:text-3xl">
             {current.ctaTitle}
           </h2>

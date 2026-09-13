@@ -112,7 +112,7 @@ const LABELS = {
       { title: "Nos contás qué pasa", description: "Por WhatsApp, teléfono o el formulario. Nos cuentas el problema o lo que necesitás instalar." },
       { title: "Visita y diagnóstico", description: "Vamos, vemos la persiana, ventana o instalación en cuestión, y te explicamos qué hace falta." },
       { title: "Presupuesto claro", description: "Antes de tocar nada, sabés qué se va a hacer y cuánto cuesta. Sin sorpresas al final." },
-      { title: "Trabajo", description: "Hacemos el trabajo acordado, con el cuidado de quien lleva 20 años haciendo esto." },
+      { title: "Trabajo", description: "Hacemos el trabajo acordado, con el cuidado de quien lleva 30 años haciendo esto." },
     ],
     zonesTitle: "En qué zonas ofrecemos este servicio",
     faqTitle: "Preguntas frecuentes",
@@ -126,7 +126,7 @@ const LABELS = {
       { title: "Tell us what's going on", description: "By WhatsApp, phone or the form. Describe the problem or what you need installed." },
       { title: "Visit & diagnosis", description: "We come out, look at the blind, window or installation in question, and explain what's needed." },
       { title: "Clear quote", description: "Before touching anything, you know what will be done and what it costs. No surprises at the end." },
-      { title: "The work", description: "We carry out the agreed job, with the care of someone who's been doing this for 20 years." },
+      { title: "The work", description: "We carry out the agreed job, with the care of someone who's been doing this for 30 years." },
     ],
     zonesTitle: "Where we offer this service",
     faqTitle: "Frequently asked questions",
@@ -175,7 +175,7 @@ export default async function ServiceDetailPage({
         ]}
       />
 
-      <section className="bg-gradient-to-b from-primary/10 to-transparent px-4 py-16 sm:px-6 sm:py-24">
+      <section className="bg-gradient-to-b from-primary/10 to-transparent px-4 py-24 sm:px-6 sm:py-28">
         <div className="mx-auto max-w-3xl text-center">
           <ServiceIcon slug={service.slug} className="mx-auto h-16 w-16" />
           <h1 className="mt-5 font-heading text-4xl text-white sm:text-5xl">
@@ -199,13 +199,13 @@ export default async function ServiceDetailPage({
         </div>
       </section>
 
-      <section className="px-4 py-16 sm:px-6">
+      <section className="px-4 py-24 sm:px-6 sm:py-28">
         <div className="mx-auto max-w-3xl">
           <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {service.features.map((feature) => (
               <li
                 key={feature}
-                className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/80"
+                className="rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-3 text-sm text-white/80"
               >
                 {feature}
               </li>
@@ -214,16 +214,16 @@ export default async function ServiceDetailPage({
         </div>
       </section>
 
-      <section className="px-4 py-16 sm:px-6">
+      <section className="px-4 py-24 sm:px-6 sm:py-28">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-center font-heading text-2xl text-white sm:text-3xl">
             {labels.howWeWork}
           </h2>
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {labels.steps.map((step, index) => (
               <div
                 key={step.title}
-                className="rounded-2xl border border-white/10 bg-white/5 p-5"
+                className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-primary/30"
               >
                 <span className="font-heading text-2xl text-primary-bright">
                   {index + 1}
@@ -236,7 +236,7 @@ export default async function ServiceDetailPage({
         </div>
       </section>
 
-      <section className="px-4 py-16 sm:px-6">
+      <section className="px-4 py-24 sm:px-6 sm:py-28">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="font-heading text-2xl text-white sm:text-3xl">
             {labels.zonesTitle}
@@ -246,7 +246,7 @@ export default async function ServiceDetailPage({
               <Link
                 key={location.slug}
                 href={`/${locale}/zonas/${location.slug}`}
-                className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80 transition-colors hover:border-primary-bright/40 hover:bg-white/10"
+                className="rounded-full border border-white/10 bg-white/[0.02] px-4 py-2 text-sm text-white/80 transition-colors hover:border-primary/30 hover:bg-white/5"
               >
                 {location.slug
                   .split("-")
@@ -259,7 +259,7 @@ export default async function ServiceDetailPage({
       </section>
 
       {faq.length > 0 && (
-        <section className="px-4 py-16 sm:px-6">
+        <section className="px-4 py-24 sm:px-6 sm:py-28">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-center font-heading text-2xl text-white sm:text-3xl">
               {labels.faqTitle}
@@ -271,8 +271,8 @@ export default async function ServiceDetailPage({
         </section>
       )}
 
-      <section className="bg-primary px-4 py-16 sm:px-6">
-        <div className="mx-auto max-w-2xl text-center">
+      <section className="px-4 py-24 sm:px-6 sm:py-28">
+        <div className="mx-auto max-w-2xl rounded-2xl border border-white/10 bg-gradient-to-br from-primary/20 to-transparent p-10 text-center">
           <h2 className="font-heading text-3xl text-white sm:text-4xl">
             {service.title}
           </h2>
