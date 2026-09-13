@@ -115,9 +115,9 @@ export default async function ZonaPage({
         ]}
       />
 
-      <section className="bg-gradient-to-b from-primary/10 to-transparent px-4 py-16 sm:px-6 sm:py-24">
+      <section className="bg-gradient-to-b from-primary/10 to-transparent px-4 py-24 sm:px-6 sm:py-28">
         <div className="mx-auto max-w-3xl text-center">
-          <span className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-white/80">
+          <span className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-white/80">
             {zone.hero.badge}
           </span>
           <h1 className="mt-6 font-heading text-4xl text-white sm:text-5xl">
@@ -137,16 +137,16 @@ export default async function ZonaPage({
         </div>
       </section>
 
-      <section className="px-4 py-16 sm:px-6">
+      <section className="px-4 py-24 sm:px-6 sm:py-28">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-center font-heading text-2xl text-white sm:text-3xl">
             {zone.localContext.title}
           </h2>
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
             {zone.localContext.points.map((point) => (
               <div
                 key={point}
-                className="flex gap-3 rounded-2xl border border-white/10 bg-white/5 p-5"
+                className="flex gap-3 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5"
               >
                 <span className="text-emerald-400" aria-hidden="true">
                   ✓
@@ -158,16 +158,16 @@ export default async function ZonaPage({
         </div>
       </section>
 
-      <section className="px-4 py-16 sm:px-6">
+      <section className="px-4 py-24 sm:px-6 sm:py-28">
         <div className="mx-auto max-w-5xl">
           <h2 className="text-center font-heading text-2xl text-white sm:text-3xl">
             {labels.servicesTitle}
           </h2>
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-3">
             {zone.servicesOffered.map((service) => (
               <div
                 key={service.title}
-                className="rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-primary-bright/40 hover:bg-white/10"
+                className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-primary/30"
               >
                 <span className="text-3xl">{service.icon}</span>
                 <h3 className="mt-4 font-heading text-lg text-white">
@@ -180,7 +180,7 @@ export default async function ZonaPage({
         </div>
       </section>
 
-      <section className="px-4 py-16 sm:px-6">
+      <section className="px-4 py-24 sm:px-6 sm:py-28">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center font-heading text-2xl text-white sm:text-3xl">
             {labels.faqTitle}
@@ -192,13 +192,13 @@ export default async function ZonaPage({
       </section>
 
       {review && (
-        <section className="px-4 py-16 sm:px-6">
+        <section className="px-4 py-24 sm:px-6 sm:py-28">
           <div className="mx-auto max-w-2xl text-center">
             <span className="text-sm font-medium uppercase tracking-wide text-primary-bright">
               {labels.reviewsLabel}
             </span>
-            <figure className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-6">
-              <div aria-hidden="true" className="text-primary-bright">
+            <figure className="mt-6 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6">
+              <div aria-hidden="true" className="text-primary">
                 {"★".repeat(review.stars)}
               </div>
               <blockquote className="mt-3 text-white/80">
@@ -212,8 +212,8 @@ export default async function ZonaPage({
         </section>
       )}
 
-      <section className="bg-primary px-4 py-16 sm:px-6">
-        <div className="mx-auto max-w-2xl text-center">
+      <section className="px-4 py-24 sm:px-6 sm:py-28">
+        <div className="mx-auto max-w-2xl rounded-2xl border border-white/10 bg-gradient-to-br from-primary/20 to-transparent p-10 text-center">
           <h2 className="font-heading text-3xl text-white sm:text-4xl">
             {zone.cta.title}
           </h2>
@@ -225,7 +225,7 @@ export default async function ZonaPage({
             />
             <Link
               href={`/${locale}/contacto`}
-              className="inline-flex items-center justify-center rounded-full border border-white/40 px-6 py-3 text-base font-medium text-white transition-colors hover:bg-white/10"
+              className="inline-flex items-center justify-center rounded-full border border-white/40 px-6 py-3 text-base font-medium text-white transition-all duration-200 hover:scale-[1.02] hover:bg-white/10"
             >
               {labels.formCta}
             </Link>
@@ -233,19 +233,19 @@ export default async function ZonaPage({
         </div>
       </section>
 
-      <section className="px-4 py-16 sm:px-6">
+      <section className="px-4 py-24 sm:px-6 sm:py-28">
         <div className="mx-auto max-w-5xl">
           <h2 className="text-center font-heading text-2xl text-white sm:text-3xl">
             {labels.nearbyTitle}
           </h2>
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-3">
             {nearby.map((location) => {
               const nearbyZone = zonesDetail[location.slug];
               return (
                 <Link
                   key={location.slug}
                   href={`/${locale}/zonas/${location.slug}`}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-5 transition-colors hover:border-primary-bright/40 hover:bg-white/10"
+                  className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-primary/30"
                 >
                   <p className="font-heading text-lg text-white">{nearbyZone.name}</p>
                   <p className="mt-1 text-sm text-white/60">{nearbyZone.hero.subtitle}</p>

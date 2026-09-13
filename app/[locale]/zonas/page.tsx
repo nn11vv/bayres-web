@@ -70,7 +70,7 @@ export default async function ZonasPage({
   const extended = LOCATIONS.filter((location) => location.extended);
 
   return (
-    <main className="px-4 py-16 sm:px-6">
+    <main className="px-4 py-24 sm:px-6 sm:py-28">
       <div className="mx-auto max-w-5xl">
         <div className="text-center">
           <h1 className="font-heading text-3xl text-white sm:text-4xl">
@@ -82,14 +82,14 @@ export default async function ZonasPage({
         <h2 className="mt-12 text-sm font-medium uppercase tracking-wide text-primary-bright">
           {sectionLabel.core}
         </h2>
-        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-4 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {core.map((location) => {
             const zone = zonesDetail[location.slug];
             return (
               <Link
                 key={location.slug}
                 href={`/${locale}/zonas/${location.slug}`}
-                className="rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-primary-bright/40 hover:bg-white/10"
+                className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-primary/30"
               >
                 <h3 className="font-heading text-xl text-white">{zone.name}</h3>
                 <p className="mt-2 text-sm text-white/70">{zone.hero.subtitle}</p>
@@ -101,14 +101,14 @@ export default async function ZonasPage({
         <h2 className="mt-12 text-sm font-medium uppercase tracking-wide text-white/50">
           {sectionLabel.extended}
         </h2>
-        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-4 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {extended.map((location) => {
             const zone = zonesDetail[location.slug];
             return (
               <Link
                 key={location.slug}
                 href={`/${locale}/zonas/${location.slug}`}
-                className="rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-primary-bright/40 hover:bg-white/10"
+                className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-primary/30"
               >
                 <h3 className="font-heading text-xl text-white">{zone.name}</h3>
                 <p className="mt-2 text-sm text-white/70">{zone.hero.subtitle}</p>
