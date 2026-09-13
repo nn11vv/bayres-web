@@ -1,9 +1,16 @@
 import { useId, type JSX } from "react";
 import type { ServiceSlug } from "@/lib/types";
 
-type IconProps = { className?: string };
+type IconProps = { className?: string; animate: boolean };
 
-function PersianasIcon({ className }: IconProps) {
+// Returns the animation classes only when `active` — used to fully omit
+// the infinite loop (and its hover speedup) under prefers-reduced-motion,
+// rather than just pausing it.
+function animateClass(active: boolean, classes: string): string | undefined {
+  return active ? classes : undefined;
+}
+
+function PersianasIcon({ className, animate }: IconProps) {
   const slats = [0, 1, 2, 3, 4];
 
   return (
@@ -18,7 +25,10 @@ function PersianasIcon({ className }: IconProps) {
           height="4"
           rx="1.5"
           fill="#1450F5"
-          className="animate-[slat-sway_2.4s_ease-in-out_infinite]"
+          className={animateClass(
+            animate,
+            "animate-[slat-sway_2.4s_ease-in-out_infinite] group-hover:[animation-duration:1.1s]",
+          )}
           style={{ animationDelay: `${i * 0.12}s` }}
         />
       ))}
@@ -26,7 +36,7 @@ function PersianasIcon({ className }: IconProps) {
   );
 }
 
-function MosquiterasIcon({ className }: IconProps) {
+function MosquiterasIcon({ className, animate }: IconProps) {
   const cols = [16, 22, 28, 34, 40];
   const rows = [12, 18, 24, 30, 36, 42];
 
@@ -40,10 +50,21 @@ function MosquiterasIcon({ className }: IconProps) {
         <line key={`r-${y}`} x1="12" y1={y} x2="44" y2={y} stroke="#0F12D2" strokeWidth="0.75" opacity="0.5" />
       ))}
 
-      <g className="animate-[mosquito-fly_3s_ease-in-out_infinite]">
+      <g
+        className={animateClass(
+          animate,
+          "animate-[mosquito-fly_3s_ease-in-out_infinite] group-hover:[animation-duration:1.4s]",
+        )}
+      >
         <ellipse cx="16" cy="30" rx="3.2" ry="1.6" fill="#1450F5" />
         <line x1="13" y1="29" x2="9" y2="27" stroke="#1450F5" strokeWidth="1" />
-        <g className="animate-[wing-flutter_0.15s_linear_infinite]" style={{ transformOrigin: "16px 28px" }}>
+        <g
+          className={animateClass(
+            animate,
+            "animate-[wing-flutter_0.15s_linear_infinite] group-hover:[animation-duration:0.08s]",
+          )}
+          style={{ transformOrigin: "16px 28px" }}
+        >
           <ellipse cx="16" cy="27" rx="2.4" ry="1.1" fill="#5F88E7" opacity="0.8" />
         </g>
       </g>
@@ -51,7 +72,7 @@ function MosquiterasIcon({ className }: IconProps) {
   );
 }
 
-function AcIcon({ className }: IconProps) {
+function AcIcon({ className, animate }: IconProps) {
   const id = useId();
 
   return (
@@ -69,13 +90,19 @@ function AcIcon({ className }: IconProps) {
           stroke="#1450F5"
           strokeWidth="1.5"
           strokeLinecap="round"
-          className="animate-[cold-wave_2s_ease-in-out_infinite]"
+          className={animateClass(
+            animate,
+            "animate-[cold-wave_2s_ease-in-out_infinite] group-hover:[animation-duration:1s]",
+          )}
           style={{ animationDelay: `${i * 0.25}s` }}
         />
       ))}
 
       <g
-        className="animate-[snow-spin_6s_linear_infinite]"
+        className={animateClass(
+          animate,
+          "animate-[snow-spin_6s_linear_infinite] group-hover:[animation-duration:3s]",
+        )}
         style={{ transformOrigin: "42px 12px" }}
       >
         {[0, 60, 120].map((angle) => (
@@ -96,7 +123,7 @@ function AcIcon({ className }: IconProps) {
   );
 }
 
-function ElectricidadIcon({ className }: IconProps) {
+function ElectricidadIcon({ className, animate }: IconProps) {
   const id = useId();
 
   return (
@@ -112,13 +139,46 @@ function ElectricidadIcon({ className }: IconProps) {
         fill="#1450F5"
         opacity="0.5"
         filter={`url(#${id}-glow)`}
-        className="animate-[bolt-glow_1.8s_ease-in-out_infinite]"
+        className={animateClass(
+          animate,
+          "animate-[bolt-glow_1.8s_ease-in-out_infinite] group-hover:[animation-duration:0.9s]",
+        )}
       />
       <path d="M30 8 L18 30 H26 L22 48 L40 24 H30 L34 8 Z" fill="#1450F5" />
 
-      <circle cx="12" cy="18" r="1.6" fill="#5F88E7" className="animate-[spark-flicker_1.6s_ease-in-out_infinite]" style={{ animationDelay: "0.1s" }} />
-      <circle cx="44" cy="34" r="1.6" fill="#5F88E7" className="animate-[spark-flicker_1.6s_ease-in-out_infinite]" style={{ animationDelay: "0.6s" }} />
-      <circle cx="14" cy="40" r="1.3" fill="#5F88E7" className="animate-[spark-flicker_1.6s_ease-in-out_infinite]" style={{ animationDelay: "1s" }} />
+      <circle
+        cx="12"
+        cy="18"
+        r="1.6"
+        fill="#5F88E7"
+        className={animateClass(
+          animate,
+          "animate-[spark-flicker_1.6s_ease-in-out_infinite] group-hover:[animation-duration:0.8s]",
+        )}
+        style={{ animationDelay: "0.1s" }}
+      />
+      <circle
+        cx="44"
+        cy="34"
+        r="1.6"
+        fill="#5F88E7"
+        className={animateClass(
+          animate,
+          "animate-[spark-flicker_1.6s_ease-in-out_infinite] group-hover:[animation-duration:0.8s]",
+        )}
+        style={{ animationDelay: "0.6s" }}
+      />
+      <circle
+        cx="14"
+        cy="40"
+        r="1.3"
+        fill="#5F88E7"
+        className={animateClass(
+          animate,
+          "animate-[spark-flicker_1.6s_ease-in-out_infinite] group-hover:[animation-duration:0.8s]",
+        )}
+        style={{ animationDelay: "1s" }}
+      />
     </svg>
   );
 }
@@ -133,10 +193,13 @@ const ICONS: Record<ServiceSlug, (props: IconProps) => JSX.Element> = {
 export default function ServiceIcon({
   slug,
   className,
+  animate = true,
 }: {
   slug: ServiceSlug;
   className?: string;
+  /** Set false (e.g. from useReducedMotion) to render a static frame. */
+  animate?: boolean;
 }) {
   const Icon = ICONS[slug];
-  return <Icon className={className} />;
+  return <Icon className={className} animate={animate} />;
 }
