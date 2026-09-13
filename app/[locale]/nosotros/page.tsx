@@ -33,6 +33,7 @@ export async function generateMetadata({
       languages: {
         "es-ES": `${SITE.domain}/es/nosotros`,
         "en-GB": `${SITE.domain}/en/nosotros`,
+        "x-default": `${SITE.domain}/es/nosotros`,
       },
     },
     openGraph: {

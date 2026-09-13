@@ -49,6 +49,7 @@ export async function generateMetadata({
       languages: {
         "es-ES": `${SITE.domain}/es/zonas/${zona}`,
         "en-GB": `${SITE.domain}/en/zonas/${zona}`,
+        "x-default": `${SITE.domain}/es/zonas/${zona}`,
       },
     },
     openGraph: {
