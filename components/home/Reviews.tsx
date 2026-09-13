@@ -6,11 +6,20 @@ const GOOGLE_REVIEWS_URL =
 
 function Stars({ count }: { count: number }) {
   return (
-    <div aria-hidden="true" className="text-primary-bright">
+    <div aria-hidden="true" className="text-primary">
       {"★".repeat(count)}
       <span className="text-white/20">{"★".repeat(Math.max(0, 5 - count))}</span>
     </div>
   );
+}
+
+function getInitials(name: string): string {
+  return name
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0]!.toUpperCase())
+    .join("");
 }
 
 export default async function Reviews({ locale }: { locale: Locale }) {
@@ -20,7 +29,7 @@ export default async function Reviews({ locale }: { locale: Locale }) {
   ]);
 
   return (
-    <section id="resenas" className="px-4 py-16 sm:px-6">
+    <section id="resenas" className="px-4 py-24 sm:px-6 sm:py-28">
       <div className="mx-auto max-w-5xl">
         <div className="text-center">
           <span className="text-sm font-medium uppercase tracking-wide text-primary-bright">
@@ -34,18 +43,23 @@ export default async function Reviews({ locale }: { locale: Locale }) {
           </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {reviews.map((review) => (
             <figure
               key={review.name}
-              className="rounded-2xl border border-white/10 bg-white/5 p-6"
+              className="group rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-primary/30"
             >
               <Stars count={review.stars} />
-              <blockquote className="mt-3 text-sm text-white/80">
+              <blockquote className="mt-3 text-[15px] text-white/70">
                 “{review.text}”
               </blockquote>
-              <figcaption className="mt-4 text-sm text-white/50">
-                {review.flag} {review.name} · {review.source}
+              <figcaption className="mt-4 flex items-center gap-3 text-sm text-white/50">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-soft to-bright text-xs font-medium text-white">
+                  {getInitials(review.name)}
+                </span>
+                <span>
+                  {review.flag} {review.name} · {review.source}
+                </span>
               </figcaption>
             </figure>
           ))}
@@ -56,7 +70,7 @@ export default async function Reviews({ locale }: { locale: Locale }) {
             href={GOOGLE_REVIEWS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/10"
+            className="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-white transition-colors duration-200 hover:bg-white/10"
           >
             {home.reviews.ctaViewAll}
           </a>

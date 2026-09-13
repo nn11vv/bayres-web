@@ -34,37 +34,37 @@ export const home: HomeContent = {
     subtitle: "Not marketing. Just the words of people who already chose us.",
     pillars: [
       {
-        icon: "⚡",
+        icon: "zap",
         title: "Fast response when it's urgent",
         description:
           "We know some jobs can't wait. Urgent jobs get priority, and we do what we can to get there the same day or the next.",
       },
       {
-        icon: "👨‍👩‍👦",
+        icon: "users",
         title: "Three generations of trade",
         description:
           "Julián, Juan and Valentín. A family business where every job carries the family name. A job well done isn't a slogan here, it's tradition.",
       },
       {
-        icon: "💰",
+        icon: "wallet",
         title: "Clear quotes, no surprises",
         description:
           "Before we start, we explain what needs doing and what it costs. No hidden charges. No extras at the end.",
       },
       {
-        icon: "🇬🇧",
+        icon: "languages",
         title: "English spoken",
         description:
           "We know many Costa Blanca residents don't speak Spanish. That's why we have a direct English line: +34 663 208 814.",
       },
       {
-        icon: "🔧",
+        icon: "wrench",
         title: "We check first, then advise",
         description:
           "We won't recommend replacing what can be repaired. We look at the problem, explain your options, and you decide.",
       },
       {
-        icon: "📍",
+        icon: "pin",
         title: "All across the Costa Blanca",
         description:
           "Alicante, Playa San Juan, El Campello, Mutxamel, Bussot, Benidorm. Your neighbourhood, our patch.",

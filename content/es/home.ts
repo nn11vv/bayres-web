@@ -34,37 +34,37 @@ export const home: HomeContent = {
     subtitle: "No es marketing. Son las palabras de quienes ya nos eligieron.",
     pillars: [
       {
-        icon: "⚡",
+        icon: "zap",
         title: "Respuesta rápida cuando urge",
         description:
           "Cuando algo no puede esperar, lo sabemos. Priorizamos las urgencias y hacemos lo posible por llegar en el día o al siguiente.",
       },
       {
-        icon: "👨‍👩‍👦",
+        icon: "users",
         title: "3 generaciones de oficio",
         description:
           "Julián, Juan y Valentín. Empresa familiar donde cada trabajo lleva el apellido detrás. El trabajo bien hecho no es un eslogan, es una tradición.",
       },
       {
-        icon: "💰",
+        icon: "wallet",
         title: "Presupuesto claro, sin sorpresas",
         description:
           "Antes de empezar, te explicamos qué hay que hacer y cuánto cuesta. Sin cobros ocultos. Sin extras al final.",
       },
       {
-        icon: "🇬🇧",
+        icon: "languages",
         title: "Hablamos inglés",
         description:
           "Sabemos que muchos vecinos de la Costa Blanca no hablan español. Por eso tenemos una línea directa en inglés: +34 663 208 814.",
       },
       {
-        icon: "🔧",
+        icon: "wrench",
         title: "Primero revisamos, después recomendamos",
         description:
           "No recomendamos cambiar lo que se puede reparar. Vemos el problema, te explicamos las opciones, y tú decides.",
       },
       {
-        icon: "📍",
+        icon: "pin",
         title: "Toda la Costa Blanca",
         description:
           "Alicante, Playa San Juan, El Campello, Mutxamel, Bussot, Benidorm. Tu barrio, nuestra zona.",
