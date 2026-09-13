@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Fraunces } from "next/font/google";
 import { SITE } from "@/lib/constants";
 import "./globals.css";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+});
+
+// Serif/italic accent — used only for the odd headline phrase (e.g. the
+// hero's "Three generations of craftsmanship"), never as the base typeface.
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  weight: "400",
+  style: "italic",
 });
 
 const DESCRIPTION =
@@ -96,7 +105,10 @@ export const metadata: Metadata = {
 // search engines use to tell locales apart).
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="es" className={`${inter.variable} h-full antialiased`}>
+    <html
+      lang="es"
+      className={`${inter.variable} ${fraunces.variable} h-full antialiased`}
+    >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );

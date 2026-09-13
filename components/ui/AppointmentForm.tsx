@@ -49,7 +49,9 @@ function buildTimeSlots(): string[] {
 const TIME_SLOTS = buildTimeSlots();
 
 const fieldClass =
-  "w-full rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/40 focus:border-primary-bright focus:outline-none";
+  "w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2 text-sm text-white placeholder:text-white/40 focus:border-primary-bright focus:outline-none";
+
+const labelClass = "mb-1.5 block text-[11px] uppercase tracking-wide text-white/50";
 
 export default function AppointmentForm({
   locale,
@@ -101,21 +103,21 @@ export default function AppointmentForm({
   return (
     <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4 sm:grid-cols-2">
       <div className="sm:col-span-1">
-        <label htmlFor="name" className="mb-1.5 block text-sm text-white/70">
+        <label htmlFor="name" className={labelClass}>
           {labels.name}
         </label>
         <input id="name" name="name" type="text" required className={fieldClass} />
       </div>
 
       <div className="sm:col-span-1">
-        <label htmlFor="phone" className="mb-1.5 block text-sm text-white/70">
+        <label htmlFor="phone" className={labelClass}>
           {labels.phone}
         </label>
         <input id="phone" name="phone" type="tel" required className={fieldClass} />
       </div>
 
       <div className="sm:col-span-1">
-        <label htmlFor="service" className="mb-1.5 block text-sm text-white/70">
+        <label htmlFor="service" className={labelClass}>
           {labels.service}
         </label>
         <select id="service" name="service" required defaultValue="" className={fieldClass}>
@@ -131,7 +133,7 @@ export default function AppointmentForm({
       </div>
 
       <div className="sm:col-span-1">
-        <label htmlFor="time" className="mb-1.5 block text-sm text-white/70">
+        <label htmlFor="time" className={labelClass}>
           {labels.time}
         </label>
         <select id="time" name="time" required defaultValue="" className={fieldClass}>
@@ -147,7 +149,7 @@ export default function AppointmentForm({
       </div>
 
       <div className="sm:col-span-2">
-        <label htmlFor="description" className="mb-1.5 block text-sm text-white/70">
+        <label htmlFor="description" className={labelClass}>
           {labels.description}
         </label>
         <textarea id="description" name="description" rows={3} className={fieldClass} />

@@ -10,10 +10,10 @@ export const home: HomeContent = {
     ctaWhatsApp: "Consulta por WhatsApp",
     ctaForm: "Pedir presupuesto",
     trustPills: [
-      "⚡ Priorizamos urgencias",
-      "✓ Presupuesto sin compromiso",
-      "🇬🇧 English spoken",
-      "📍 Alicante y Costa Blanca",
+      "Priorizamos urgencias",
+      "Presupuesto sin compromiso",
+      "English spoken",
+      "Alicante y Costa Blanca",
     ],
   },
   services: {

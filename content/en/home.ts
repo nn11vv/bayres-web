@@ -10,10 +10,10 @@ export const home: HomeContent = {
     ctaWhatsApp: "Chat on WhatsApp",
     ctaForm: "Request a quote",
     trustPills: [
-      "⚡ Urgent jobs prioritised",
-      "✓ Free quote, no obligation",
-      "🇬🇧 English-speaking team",
-      "📍 Alicante & Costa Blanca",
+      "Urgent jobs prioritised",
+      "Free quote, no obligation",
+      "English-speaking team",
+      "Alicante & Costa Blanca",
     ],
   },
   services: {
