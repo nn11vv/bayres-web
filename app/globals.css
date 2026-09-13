@@ -40,30 +40,67 @@ body {
 }
 
 /* Service icon animations — components/ui/ServiceIcons.tsx */
-@keyframes slat-sway {
-  0%,
+@keyframes slat-drop {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0.4;
+  }
   100% {
     transform: translateY(0);
-  }
-  50% {
-    transform: translateY(2px);
+    opacity: 1;
   }
 }
 
-@keyframes mosquito-fly {
-  0%,
-  15% {
-    transform: translate(0, 3px) rotate(0deg);
-    opacity: 1;
+@keyframes gear-turn {
+  0% {
+    transform: rotate(0deg);
   }
-  55% {
-    transform: translate(15px, -5px) rotate(10deg);
-    opacity: 1;
-  }
-  70%,
   100% {
-    transform: translate(17px, -6px) rotate(10deg);
-    opacity: 0;
+    transform: rotate(90deg);
+  }
+}
+
+/* Plain (non-Tailwind-generated) rules for the one-shot ease — a
+   cubic-bezier(...) value inside a Tailwind arbitrary-value bracket
+   (parens + commas together) silently fails to generate any CSS rule at
+   all, so this is written by hand instead of as a `group-hover:[...]`
+   utility. Pure ease-out (no overshoot): starts fast, decelerates into
+   rest, like a real blind slowing under gravity/motor at the end of
+   its drop — not a bouncy UI spring. */
+.group:hover .icon-anim-slat {
+  animation-name: slat-drop;
+  animation-duration: 700ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: forwards;
+}
+
+/* Matches the full cascade: 5 slats * 140ms stagger (see ServiceIcons.tsx)
+   + the last slat's own 700ms = 1260ms end to end. */
+.group:hover .icon-anim-gear {
+  animation-name: gear-turn;
+  animation-duration: 1260ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: forwards;
+}
+
+/* Mosquito flies in from outside the mesh and hits it once — a real
+   collision with a physical barrier, not a continuous flight loop. */
+@keyframes mosquito-approach {
+  0% {
+    transform: translateX(-14px);
+    opacity: 0.4;
+  }
+  60% {
+    transform: translateX(2px);
+    opacity: 1;
+  }
+  78% {
+    transform: translateX(-3px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-1px);
+    opacity: 0.85;
   }
 }
 
@@ -77,46 +114,185 @@ body {
   }
 }
 
-@keyframes cold-wave {
+@keyframes mesh-impact-flash {
   0% {
-    transform: translateX(-3px);
-    opacity: 0.35;
+    opacity: 0;
+    transform: scale(0.6);
   }
-  50% {
-    transform: translateX(3px);
+  40% {
     opacity: 1;
-  }
-  100% {
-    transform: translateX(-3px);
-    opacity: 0.35;
-  }
-}
-
-@keyframes snow-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes bolt-glow {
-  0%,
-  100% {
-    opacity: 0.7;
     transform: scale(1);
   }
-  50% {
-    opacity: 1;
-    transform: scale(1.06);
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
   }
 }
 
-@keyframes spark-flicker {
-  0%,
-  60%,
-  100% {
+.group:hover .icon-anim-mosquito-approach {
+  animation-name: mosquito-approach;
+  animation-duration: 550ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+.group:hover .icon-anim-mosquito-wing {
+  animation-name: wing-flutter;
+  animation-duration: 90ms;
+  animation-timing-function: linear;
+  animation-iteration-count: 6;
+  animation-fill-mode: forwards;
+}
+
+/* Fires right as the mosquito arrives (~60% of the 550ms approach). */
+.group:hover .icon-anim-mosquito-flash {
+  animation-name: mesh-impact-flash;
+  animation-duration: 350ms;
+  animation-delay: 330ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+/* AC unit "startup" sequence — LED turns on, then air puffs out in a
+   sequence of curls, then the cold indicator pulses once air is
+   flowing. One coordinated cycle, not three independent ambient loops. */
+@keyframes ac-led-blink {
+  0% {
     opacity: 0;
   }
-  75% {
+  45% {
     opacity: 1;
   }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes ac-air-puff {
+  0% {
+    opacity: 0.25;
+    transform: translateY(0) scale(1);
+  }
+  35% {
+    opacity: 1;
+    transform: translateY(2px) scale(1.02);
+  }
+  100% {
+    opacity: 0.6;
+    transform: translateY(6px) scale(1.06);
+  }
+}
+
+@keyframes ac-snow-pulse {
+  0% {
+    opacity: 0.25;
+    transform: scale(0.75);
+  }
+  55% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.group:hover .icon-anim-ac-led {
+  animation-name: ac-led-blink;
+  animation-duration: 300ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+.group:hover .icon-anim-ac-air {
+  animation-name: ac-air-puff;
+  animation-duration: 750ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: forwards;
+}
+
+/* Starts once the air has begun moving (300ms in) and settles by 800ms —
+   the spring here is intentional (unlike the blind): a pulse reads fine
+   with a little overshoot, it isn't simulating gravity. */
+.group:hover .icon-anim-ac-snow {
+  animation-name: ac-snow-pulse;
+  animation-duration: 500ms;
+  animation-delay: 300ms;
+  animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation-fill-mode: forwards;
+}
+
+/* Electricity "startup" sequence — current travels along the wire, then
+   the bolt flashes once it arrives, with a single spark accent. One
+   coordinated cycle, not a continuous shower of sparks like before. */
+@keyframes wire-pulse {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(14px, -16px);
+    opacity: 0;
+  }
+}
+
+@keyframes bolt-flash {
+  0% {
+    opacity: 0.25;
+    transform: scale(0.92);
+  }
+  55% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+}
+
+@keyframes spark-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+
+.group:hover .icon-anim-wire-pulse {
+  animation-name: wire-pulse;
+  animation-duration: 400ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+/* Fires as the pulse reaches the bolt (400ms in). */
+.group:hover .icon-anim-bolt {
+  animation-name: bolt-flash;
+  animation-duration: 350ms;
+  animation-delay: 380ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+.group:hover .icon-anim-spark {
+  animation-name: spark-pop;
+  animation-duration: 300ms;
+  animation-delay: 400ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
 }

@@ -27,11 +27,34 @@ function PersianasIcon({ className, animate }: IconProps) {
           fill="#1450F5"
           className={animateClass(
             animate,
-            "animate-[slat-sway_2.4s_ease-in-out_infinite] group-hover:[animation-duration:1.1s]",
+            "icon-anim-slat transition-[transform,opacity] duration-[650ms] ease-out",
           )}
-          style={{ animationDelay: `${i * 0.12}s` }}
+          style={{ animationDelay: `${i * 140}ms` }}
         />
       ))}
+
+      {/* Lateral gear — stands in for the blind's lift mechanism, spins in
+          sync with the slats dropping. Kept as its own <g> so it can be
+          swapped for a pulley later without touching the slats above. */}
+      <g
+        className={animateClass(animate, "icon-anim-gear transition-transform duration-[650ms] ease-out")}
+        style={{ transformOrigin: "50px 14px" }}
+      >
+        <circle cx="50" cy="14" r="4" fill="none" stroke="#5F88E7" strokeWidth="1.5" />
+        {[0, 60, 120, 180, 240, 300].map((angle) => (
+          <line
+            key={angle}
+            x1="50"
+            y1="8.5"
+            x2="50"
+            y2="10.5"
+            stroke="#5F88E7"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            transform={`rotate(${angle} 50 14)`}
+          />
+        ))}
+      </g>
     </svg>
   );
 }
@@ -50,19 +73,39 @@ function MosquiterasIcon({ className, animate }: IconProps) {
         <line key={`r-${y}`} x1="12" y1={y} x2="44" y2={y} stroke="#0F12D2" strokeWidth="0.75" opacity="0.5" />
       ))}
 
+      {/* Impact flash — an expanding ring right where the mosquito hits
+          the mesh. Naturally invisible once settled (its own 100% frame
+          is opacity 0), so no reduced-motion special-casing needed. */}
+      <circle
+        cx="16"
+        cy="30"
+        r="3"
+        fill="none"
+        stroke="#5F88E7"
+        strokeWidth="1.2"
+        opacity="0"
+        style={{ transformOrigin: "16px 30px" }}
+        className={animateClass(animate, "icon-anim-mosquito-flash")}
+      />
+
+      {/* Mosquito — flies in from outside the mesh and hits it once, then
+          stays stunned in place. Under reduced motion it's just shown
+          already settled at the mesh, not mid-flight outside it. */}
       <g
         className={animateClass(
           animate,
-          "animate-[mosquito-fly_3s_ease-in-out_infinite] group-hover:[animation-duration:1.4s]",
+          "icon-anim-mosquito-approach transition-[transform,opacity] duration-[500ms] ease-out",
         )}
+        style={
+          animate
+            ? { transform: "translateX(-14px)", opacity: 0.4 }
+            : { transform: "translateX(-1px)", opacity: 0.85 }
+        }
       >
         <ellipse cx="16" cy="30" rx="3.2" ry="1.6" fill="#1450F5" />
         <line x1="13" y1="29" x2="9" y2="27" stroke="#1450F5" strokeWidth="1" />
         <g
-          className={animateClass(
-            animate,
-            "animate-[wing-flutter_0.15s_linear_infinite] group-hover:[animation-duration:0.08s]",
-          )}
+          className={animateClass(animate, "icon-anim-mosquito-wing")}
           style={{ transformOrigin: "16px 28px" }}
         >
           <ellipse cx="16" cy="27" rx="2.4" ry="1.1" fill="#5F88E7" opacity="0.8" />
@@ -82,6 +125,21 @@ function AcIcon({ className, animate }: IconProps) {
       <line x1="24" y1="21" x2="30" y2="21" stroke="#0B0F1A" strokeWidth="1.5" opacity="0.4" />
       <line x1="34" y1="21" x2="40" y2="21" stroke="#0B0F1A" strokeWidth="1.5" opacity="0.4" />
 
+      {/* Power LED — dim at rest so hover reads as "turning on"; under
+          reduced motion it just shows lit (the settled end state), never
+          the idle/off look. */}
+      <circle
+        cx="43"
+        cy="21"
+        r="1.6"
+        fill="#5F88E7"
+        opacity={animate ? 0 : 0.7}
+        className={animateClass(animate, "icon-anim-ac-led transition-opacity duration-[650ms] ease-out")}
+      />
+
+      {/* Air curls — dim/idle at rest, puff outward one after another once
+          the unit "turns on". Each keeps its curved (non-straight) path.
+          Under reduced motion they're just shown fully visible, static. */}
       {[0, 1, 2].map((i) => (
         <path
           key={`${id}-wave-${i}`}
@@ -90,20 +148,27 @@ function AcIcon({ className, animate }: IconProps) {
           stroke="#1450F5"
           strokeWidth="1.5"
           strokeLinecap="round"
+          opacity={animate ? 0.25 : 1}
           className={animateClass(
             animate,
-            "animate-[cold-wave_2s_ease-in-out_infinite] group-hover:[animation-duration:1s]",
+            "icon-anim-ac-air transition-[transform,opacity] duration-[650ms] ease-out",
           )}
-          style={{ animationDelay: `${i * 0.25}s` }}
+          style={{ animationDelay: `${150 + i * 90}ms` }}
         />
       ))}
 
+      {/* Cold indicator — pulses once the air starts flowing. Under
+          reduced motion it's shown at full size, not the idle/shrunk look. */}
       <g
         className={animateClass(
           animate,
-          "animate-[snow-spin_6s_linear_infinite] group-hover:[animation-duration:3s]",
+          "icon-anim-ac-snow transition-[transform,opacity] duration-[650ms] ease-out",
         )}
-        style={{ transformOrigin: "42px 12px" }}
+        style={
+          animate
+            ? { transformOrigin: "42px 12px", transform: "scale(0.75)", opacity: 0.25 }
+            : { transformOrigin: "42px 12px", transform: "scale(1)", opacity: 1 }
+        }
       >
         {[0, 60, 120].map((angle) => (
           <line
@@ -134,50 +199,46 @@ function ElectricidadIcon({ className, animate }: IconProps) {
         </filter>
       </defs>
 
+      {/* Wire feeding the bolt — always faintly present; the traveling
+          pulse is what animates, not the wire itself. */}
+      <line x1="6" y1="50" x2="20" y2="34" stroke="#5F88E7" strokeWidth="1.2" opacity="0.3" />
+      <circle
+        cx="6"
+        cy="50"
+        r="1.4"
+        fill="#5F88E7"
+        opacity="0"
+        className={animateClass(animate, "icon-anim-wire-pulse")}
+      />
+
+      {/* Glow — dim/off at rest, flashes once the current arrives and
+          settles lit. Under reduced motion it's shown already lit. */}
       <path
         d="M30 8 L18 30 H26 L22 48 L40 24 H30 L34 8 Z"
         fill="#1450F5"
-        opacity="0.5"
         filter={`url(#${id}-glow)`}
         className={animateClass(
           animate,
-          "animate-[bolt-glow_1.8s_ease-in-out_infinite] group-hover:[animation-duration:0.9s]",
+          "icon-anim-bolt transition-[transform,opacity] duration-[500ms] ease-out",
         )}
+        style={
+          animate
+            ? { transformOrigin: "29px 28px", transform: "scale(0.92)", opacity: 0.25 }
+            : { transformOrigin: "29px 28px", transform: "scale(1)", opacity: 0.6 }
+        }
       />
       <path d="M30 8 L18 30 H26 L22 48 L40 24 H30 L34 8 Z" fill="#1450F5" />
 
+      {/* Single spark accent synced with the flash — one pop, not a
+          continuous shower like before. */}
       <circle
-        cx="12"
-        cy="18"
-        r="1.6"
+        cx="40"
+        cy="20"
+        r="1.5"
         fill="#5F88E7"
-        className={animateClass(
-          animate,
-          "animate-[spark-flicker_1.6s_ease-in-out_infinite] group-hover:[animation-duration:0.8s]",
-        )}
-        style={{ animationDelay: "0.1s" }}
-      />
-      <circle
-        cx="44"
-        cy="34"
-        r="1.6"
-        fill="#5F88E7"
-        className={animateClass(
-          animate,
-          "animate-[spark-flicker_1.6s_ease-in-out_infinite] group-hover:[animation-duration:0.8s]",
-        )}
-        style={{ animationDelay: "0.6s" }}
-      />
-      <circle
-        cx="14"
-        cy="40"
-        r="1.3"
-        fill="#5F88E7"
-        className={animateClass(
-          animate,
-          "animate-[spark-flicker_1.6s_ease-in-out_infinite] group-hover:[animation-duration:0.8s]",
-        )}
-        style={{ animationDelay: "1s" }}
+        opacity="0"
+        style={{ transformOrigin: "40px 20px" }}
+        className={animateClass(animate, "icon-anim-spark")}
       />
     </svg>
   );
