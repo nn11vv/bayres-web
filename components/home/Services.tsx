@@ -4,6 +4,11 @@ import { getContent } from "@/lib/i18n";
 import { serviceSlugFor } from "@/lib/constants";
 import type { HomeContent, Locale, ServiceContent } from "@/lib/types";
 
+const EXPLORE_LABEL: Record<Locale, string> = {
+  es: "Explorar servicio",
+  en: "Explore service",
+};
+
 function ServiceCard({
   service,
   locale,
@@ -14,11 +19,14 @@ function ServiceCard({
   return (
     <Link
       href={`/${locale}/servicios/${serviceSlugFor(service.slug, locale)}`}
-      className="group rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-primary-bright/40 hover:bg-white/10"
+      className="group flex flex-col rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-primary/30"
     >
       <ServiceIcon slug={service.slug} className="h-14 w-14" />
       <h3 className="mt-4 font-heading text-xl text-white">{service.title}</h3>
       <p className="mt-2 text-sm text-white/70">{service.shortDescription}</p>
+      <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary-soft/60 transition-colors duration-200 group-hover:text-primary-soft">
+        {EXPLORE_LABEL[locale]} →
+      </span>
     </Link>
   );
 }
@@ -29,11 +37,8 @@ export default async function Services({ locale }: { locale: Locale }) {
     getContent<ServiceContent[]>(locale, "services"),
   ]);
 
-  const core = services.filter((service) => service.category === "core");
-  const secondary = services.filter((service) => service.category === "secondary");
-
   return (
-    <section className="px-4 py-16 sm:px-6">
+    <section className="px-4 py-24 sm:px-6 sm:py-28">
       <div className="mx-auto max-w-5xl">
         <div className="text-center">
           <span className="text-sm font-medium uppercase tracking-wide text-primary-bright">
@@ -47,18 +52,8 @@ export default async function Services({ locale }: { locale: Locale }) {
           </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {core.map((service) => (
-            <ServiceCard key={service.slug} service={service} locale={locale} />
-          ))}
-        </div>
-
-        <p className="mt-10 text-center text-sm font-medium uppercase tracking-wide text-white/50">
-          {home.services.secondaryLabel}
-        </p>
-
-        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {secondary.map((service) => (
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {services.map((service) => (
             <ServiceCard key={service.slug} service={service} locale={locale} />
           ))}
         </div>

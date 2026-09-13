@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { isLocale, DEFAULT_LOCALE } from "@/lib/i18n";
 import { SITE } from "@/lib/constants";
 import Hero from "@/components/home/Hero";
+import StatsBand from "@/components/home/StatsBand";
 import Services from "@/components/home/Services";
 import WhyUs from "@/components/home/WhyUs";
 import Reviews from "@/components/home/Reviews";
@@ -64,6 +65,7 @@ export default async function HomePage({
     <main>
       <SchemaLocalBusiness locale={locale} />
       <Hero locale={locale} />
+      <StatsBand locale={locale} />
       <Services locale={locale} />
       <WhyUs locale={locale} />
       <Reviews locale={locale} />

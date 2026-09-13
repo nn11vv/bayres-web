@@ -53,6 +53,13 @@ export interface HomeContent {
     ctaForm: string;
     trustPills: string[];
   };
+  stats: {
+    value: number;
+    /** Decimal places to keep when formatting the count-up (default 0). */
+    decimals?: number;
+    suffix: string;
+    label: string;
+  }[];
   services: {
     label: string;
     title: string;

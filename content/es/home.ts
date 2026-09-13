@@ -16,6 +16,12 @@ export const home: HomeContent = {
       "Alicante y Costa Blanca",
     ],
   },
+  stats: [
+    { value: 200, suffix: "+", label: "Reseñas en Google" },
+    { value: 5, decimals: 1, suffix: "", label: "Valoración media" },
+    { value: 20, suffix: "+", label: "Años de experiencia" },
+    { value: 3, suffix: "", label: "Generaciones" },
+  ],
   services: {
     label: "Lo que hacemos",
     title: "Servicios que ofrecemos",
