@@ -7,12 +7,12 @@ const META = {
   es: {
     title: "Nosotros",
     description:
-      "Persianas Bayres: empresa familiar de Mutxamel, Alicante, con tres generaciones — Julián, Juan y Valentín — y más de 20 años reparando e instalando persianas y mosquiteras.",
+      "Persianas Bayres: Julián trae más de 30 años de experiencia desde Buenos Aires, en Alicante desde 2023. Hoy, empresa familiar en Mutxamel junto a Juan y Brisa.",
   },
   en: {
     title: "About us",
     description:
-      "Persianas Bayres: a family-run business from Mutxamel, Alicante, spanning three generations — Julián, Juan and Valentín — with over 20 years repairing and installing blinds and fly screens.",
+      "Persianas Bayres: Julián brings over 30 years of experience from Buenos Aires, in Alicante since 2023. Today, a family business in Mutxamel alongside Juan and Brisa.",
   },
 } as const;
 
@@ -64,13 +64,13 @@ export default async function NosotrosPage({
         {locale === "es" ? (
           <div className="mt-6 space-y-4 text-white/70">
             <p>
-              Persianas Bayres nació en Mutxamel, Alicante, hace más de 20
-              años, cuando Julián empezó a reparar e instalar persianas para
-              vecinos y conocidos. Con el tiempo, ese trabajo de confianza se
-              convirtió en una empresa familiar.
+              Julián trae más de 30 años de experiencia reparando e
+              instalando persianas desde Buenos Aires. Está en Alicante desde
+              2023, cuando abrió Persianas Bayres en Mutxamel para seguir
+              haciendo lo mismo: trabajo de confianza, vecino por vecino.
             </p>
             <p>
-              Hoy, la segunda generación —Juan y Valentín, hijos de
+              Hoy, la segunda generación —Juan y Brisa, hijos de
               Julián— trabaja codo a codo con él. No es solo un cambio de
               nombre en la puerta: siguen yendo juntos a las visitas, siguen
               decidiendo entre los tres qué hacer con cada persiana, y
@@ -110,14 +110,15 @@ export default async function NosotrosPage({
         ) : (
           <div className="mt-6 space-y-4 text-white/70">
             <p>
-              Persianas Bayres started in Mutxamel, Alicante, over 20 years
-              ago, when Julián began repairing and installing blinds for
-              neighbours and acquaintances. Over time, that trusted work
-              grew into a family business.
+              Julián brings over 30 years of experience repairing and
+              installing blinds from Buenos Aires. He&apos;s been in Alicante
+              since 2023, when he opened Persianas Bayres in Mutxamel to
+              keep doing the same thing: trusted work, neighbour by
+              neighbour.
             </p>
             <p>
-              Today, the second generation — Juan and Valentín, Julián&apos;s
-              sons — works alongside him. It&apos;s not just a name change
+              Today, the second generation — Juan and Brisa, Julián&apos;s
+              children — works alongside him. It&apos;s not just a name change
               on the door: they still go to visits together, still decide
               between the three of them what each blind actually needs, and
               still won&apos;t recommend replacing something that can be

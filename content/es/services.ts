@@ -9,7 +9,7 @@ export const services: ServiceContent[] = [
     shortDescription:
       "Reparación, instalación y motorización de persianas para el hogar.",
     longDescription:
-      "Reparamos, instalamos y motorizamos persianas de PVC y aluminio para viviendas particulares. Ya sea una cinta rota, un motor que falla o una persiana nueva, tenemos la experiencia de 20 años haciéndolo.",
+      "Reparamos, instalamos y motorizamos persianas de PVC y aluminio para viviendas particulares. Ya sea una cinta rota, un motor que falla o una persiana nueva, tenemos la experiencia de 30 años haciéndolo.",
     features: [
       "Reparación de cintas, correas y ejes",
       "Instalación de persianas nuevas",

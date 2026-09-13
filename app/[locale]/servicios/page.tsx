@@ -12,9 +12,9 @@ const META = {
     label: "Lo que hacemos",
     title: "Nuestros servicios",
     description:
-      "Persianas, mosquiteras, aire acondicionado y electricidad doméstica en Alicante. Empresa familiar con más de 20 años y +200 reseñas 5⭐.",
+      "Persianas, mosquiteras, aire acondicionado y electricidad doméstica en Alicante. Más de 30 años de oficio, en Alicante desde 2023. +200 reseñas 5⭐.",
     intro: [
-      "En Persianas Bayres empezamos hace más de 20 años reparando persianas, y ese sigue siendo el corazón del negocio: persianas y mosquiteras, hecho bien, sin atajos. Con los años sumamos instalación de aire acondicionado y pequeños trabajos de electricidad doméstica, siempre con el mismo criterio: si podemos hacerlo bien, lo hacemos; si no, te lo decimos y te recomendamos a quien corresponda.",
+      "Julián trae más de 30 años de experiencia reparando persianas desde Buenos Aires, y está en Alicante desde 2023. Eso sigue siendo el corazón del negocio: persianas y mosquiteras, hecho bien, sin atajos. Con los años sumamos instalación de aire acondicionado y pequeños trabajos de electricidad doméstica, siempre con el mismo criterio: si podemos hacerlo bien, lo hacemos; si no, te lo decimos y te recomendamos a quien corresponda.",
       "No trabajamos con un catálogo cerrado de precios fijos, porque cada persiana, cada ventana y cada instalación es distinta. Lo que sí mantenemos siempre es el mismo proceso: escuchamos qué necesitás, vamos a verlo, y te damos un presupuesto claro antes de tocar nada.",
     ],
     zonesCta: "Ver zonas donde trabajamos",
@@ -26,9 +26,9 @@ const META = {
     label: "What we do",
     title: "Our services",
     description:
-      "Blinds, fly screens, air conditioning and small home electrics in Alicante. Family-run business with 20+ years of experience and +200 five-star reviews.",
+      "Blinds, fly screens, air conditioning and small home electrics in Alicante. 30+ years of craft, in Alicante since 2023. +200 five-star reviews.",
     intro: [
-      "We started over 20 years ago repairing blinds, and that's still the heart of the business: blinds and fly screens, done properly, no shortcuts. Over the years we added air conditioning installation and small home electrics, always with the same approach — if we can do it well, we do it; if not, we tell you and point you to someone who can.",
+      "Julián brings over 30 years of experience repairing blinds from Buenos Aires, and he's been in Alicante since 2023. That's still the heart of the business: blinds and fly screens, done properly, no shortcuts. Over the years we added air conditioning installation and small home electrics, always with the same approach — if we can do it well, we do it; if not, we tell you and point you to someone who can.",
       "We don't work off a fixed price list, because every blind, window and installation is different. What stays the same is the process: we listen to what you need, we come and see it, and we give you a clear quote before touching anything.",
     ],
     zonesCta: "See areas we cover",

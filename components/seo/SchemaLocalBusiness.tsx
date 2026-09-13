@@ -24,8 +24,8 @@ export default function SchemaLocalBusiness({ locale, areaServed }: Props) {
     legalName: SITE.legalName,
     description:
       locale === "es"
-        ? "Empresa familiar en Alicante especializada en reparación e instalación de persianas y mosquiteras. Con más de 20 años de experiencia."
-        : "Family-run business in Alicante specialising in blind and fly screen repair and installation. Over 20 years of experience.",
+        ? "Empresa familiar en Alicante especializada en reparación e instalación de persianas y mosquiteras. Más de 30 años de oficio desde Buenos Aires, en Alicante desde 2023."
+        : "Family-run business in Alicante specialising in blind and fly screen repair and installation. Over 30 years of craft from Buenos Aires, in Alicante since 2023.",
     url: `${SITE.domain}/${locale}`,
     telephone: locale === "es" ? SITE.phones.es : SITE.phones.en,
     email: SITE.email,

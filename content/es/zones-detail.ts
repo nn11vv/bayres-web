@@ -10,7 +10,7 @@ export const zonesDetail: Record<ZoneSlug, ZoneDetailContent> = {
       badge: "Servicio habitual en la zona",
     },
     intro:
-      "Playa San Juan es una de las zonas donde más trabajamos: bloques de pisos altos, mucha vista al mar y una brisa marina que no perdona a las persianas. Es habitual que la sal del aire termine gripando el mecanismo o desgastando la cinta antes de tiempo, y ese es justamente el problema que más nos encontramos cuando vamos a Playa San Juan.\n\nTrabajamos aquí desde hace más de 20 años, tanto en viviendas particulares como en comunidades de vecinos de los edificios altos que caracterizan la zona. La mayoría son persianas de aluminio, pensadas para aguantar el clima costero, pero incluso el aluminio sufre con los años si el mecanismo no se cuida.\n\nPlaya San Juan también tiene una comunidad grande de residentes extranjeros —ingleses, nórdicos, alemanes— y por eso en esta zona en particular la atención en inglés se usa casi tanto como en español. Desde nuestra base en Mutxamel llegamos en 15-20 minutos, así que cuando algo urge en Playa San Juan, normalmente podemos organizarnos rápido.\n\nAdemás de reparación, en Playa San Juan instalamos bastantes mosquiteras nuevas —los pisos con vistas al mar suelen querer tener las ventanas abiertas sin bichos— y motorizamos persianas para vecinos que ya no quieren subir y bajar a mano varias veces al día.",
+      "Playa San Juan es una de las zonas donde más trabajamos: bloques de pisos altos, mucha vista al mar y una brisa marina que no perdona a las persianas. Es habitual que la sal del aire termine gripando el mecanismo o desgastando la cinta antes de tiempo, y ese es justamente el problema que más nos encontramos cuando vamos a Playa San Juan.\n\nTrabajamos aquí de forma habitual, tanto en viviendas particulares como en comunidades de vecinos de los edificios altos que caracterizan la zona. La mayoría son persianas de aluminio, pensadas para aguantar el clima costero, pero incluso el aluminio sufre con los años si el mecanismo no se cuida.\n\nPlaya San Juan también tiene una comunidad grande de residentes extranjeros —ingleses, nórdicos, alemanes— y por eso en esta zona en particular la atención en inglés se usa casi tanto como en español. Desde nuestra base en Mutxamel llegamos en 15-20 minutos, así que cuando algo urge en Playa San Juan, normalmente podemos organizarnos rápido.\n\nAdemás de reparación, en Playa San Juan instalamos bastantes mosquiteras nuevas —los pisos con vistas al mar suelen querer tener las ventanas abiertas sin bichos— y motorizamos persianas para vecinos que ya no quieren subir y bajar a mano varias veces al día.",
     localContext: {
       title: "Lo que sabemos de Playa San Juan",
       points: [
@@ -144,14 +144,14 @@ export const zonesDetail: Record<ZoneSlug, ZoneDetailContent> = {
       badge: "Nuestra sede",
     },
     intro:
-      "Mutxamel no es una zona más para nosotros: es donde arrancó todo. Julián empezó reparando persianas de vecinos y conocidos en Mutxamel hace más de 20 años, y hoy seguimos aquí, con Juan y Valentín trabajando junto a él en el mismo pueblo.\n\nEso hace que en Mutxamel la relación con muchos clientes sea distinta: nos conocemos, sabemos qué edificio es cada uno, y muchas veces ya sabemos qué tipo de persiana tiene tu casa antes de llegar. El municipio tiene una mezcla de vivienda antigua —con las clásicas persianas de PVC de toda la vida— y construcción más nueva, donde ya vemos más motorización de fábrica.\n\nAl ser nuestra base, en Mutxamel no hay tiempo de desplazamiento: si hay una urgencia, normalmente somos los primeros en poder pasar. Reparamos cintas, ejes y motores en las persianas de siempre, instalamos mosquiteras a medida, y motorizamos las que todavía se manejan a mano.\n\nSi sos de Mutxamel, probablemente ya conocés a alguien que hemos atendido antes. Y si sos nuevo en el pueblo, con gusto te explicamos cómo trabajamos antes de que decidas nada.",
+      "Mutxamel no es una zona más para nosotros: es donde arrancó todo en Alicante. Julián trae más de 30 años de experiencia como persianista desde Buenos Aires — está en Alicante desde 2023, cuando se instaló en Mutxamel, y hoy Juan y Brisa trabajan junto a él en el mismo pueblo.\n\nEso hace que en Mutxamel la relación con muchos clientes sea distinta: nos conocemos, sabemos qué edificio es cada uno, y muchas veces ya sabemos qué tipo de persiana tiene tu casa antes de llegar. El municipio tiene una mezcla de vivienda antigua —con las clásicas persianas de PVC de toda la vida— y construcción más nueva, donde ya vemos más motorización de fábrica.\n\nAl ser nuestra base, en Mutxamel no hay tiempo de desplazamiento: si hay una urgencia, normalmente somos los primeros en poder pasar. Reparamos cintas, ejes y motores en las persianas de siempre, instalamos mosquiteras a medida, y motorizamos las que todavía se manejan a mano.\n\nSi sos de Mutxamel, probablemente ya conocés a alguien que hemos atendido antes. Y si sos nuevo en el pueblo, con gusto te explicamos cómo trabajamos antes de que decidas nada.",
     localContext: {
       title: "Lo que sabemos de Mutxamel",
       points: [
         "Es nuestra base: sin tiempo de desplazamiento, somos de los primeros en poder pasar.",
         "Conocemos personalmente a buena parte de los vecinos que atendemos en el pueblo.",
         "Mezcla de vivienda antigua con persianas de PVC clásicas y construcción nueva con motorización de fábrica.",
-        "Más de 20 años trabajando en el mismo municipio donde vivimos.",
+        "Más de 30 años de oficio, en el mismo municipio donde vivimos desde 2023.",
       ],
     },
     servicesOffered: [
@@ -177,7 +177,7 @@ export const zonesDetail: Record<ZoneSlug, ZoneDetailContent> = {
       {
         question: "¿Persianas Bayres es de Mutxamel?",
         answer:
-          "Sí, es donde tenemos nuestra base desde hace más de 20 años y donde empezó todo con Julián.",
+          "Sí, es donde tenemos nuestra base desde 2023, cuando Julián se instaló en Alicante con más de 30 años de oficio desde Buenos Aires.",
       },
       {
         question: "¿Atienden urgencias el mismo día en Mutxamel?",

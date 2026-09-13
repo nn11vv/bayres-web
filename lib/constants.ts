@@ -118,7 +118,7 @@ export const SITE = {
   name: "Persianas Bayres",
   legalName: "Persianas Bayres",
   founder: "Julián",
-  team: ["Julián", "Juan", "Valentín"],
+  team: ["Julián", "Juan", "Brisa"],
   location: {
     city: "Mutxamel",
     region: "Alicante",
@@ -157,7 +157,7 @@ export const BUSINESS_INFO: BusinessInfo = {
     country: "ES",
   },
   coordinates: { lat: 38.4089, lng: -0.4744 },
-  team: ["Julián", "Juan", "Valentín"],
+  team: ["Julián", "Juan", "Brisa"],
   hours: {
     weekdays: "09:00-14:00, 16:00-19:00",
     saturday: "09:00-13:00",

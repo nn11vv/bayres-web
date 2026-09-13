@@ -10,7 +10,7 @@ export const zonesDetail: Record<ZoneSlug, ZoneDetailContent> = {
       badge: "Regular service area",
     },
     intro:
-      "Playa San Juan is one of the areas we work in most: tall blocks of flats, sea views, and a salty breeze that doesn't do blinds any favours. The mechanism seizing up or the strap wearing out before its time is, by far, the most common issue we come across here.\n\nWe've been working in this area for over 20 years, in both private flats and the residents' associations that run the tall buildings so typical of Playa San Juan. Most blinds here are aluminium, built to handle the coastal weather, but even aluminium struggles after years of salt exposure if the mechanism isn't looked after.\n\nPlaya San Juan also has a large community of foreign residents — British, Nordic, German — so in this particular area we use English almost as often as Spanish. From our base in Mutxamel we're there in 15-20 minutes, so when something's urgent in Playa San Juan we can usually sort it out quickly.\n\nBeyond repairs, we install a fair number of new fly screens here too — flats with sea views tend to want their windows open without letting insects in — and we motorise blinds for residents who'd rather not raise and lower them by hand several times a day.",
+      "Playa San Juan is one of the areas we work in most: tall blocks of flats, sea views, and a salty breeze that doesn't do blinds any favours. The mechanism seizing up or the strap wearing out before its time is, by far, the most common issue we come across here.\n\nWe work in this area regularly, in both private flats and the residents' associations that run the tall buildings so typical of Playa San Juan. Most blinds here are aluminium, built to handle the coastal weather, but even aluminium struggles after years of salt exposure if the mechanism isn't looked after.\n\nPlaya San Juan also has a large community of foreign residents — British, Nordic, German — so in this particular area we use English almost as often as Spanish. From our base in Mutxamel we're there in 15-20 minutes, so when something's urgent in Playa San Juan we can usually sort it out quickly.\n\nBeyond repairs, we install a fair number of new fly screens here too — flats with sea views tend to want their windows open without letting insects in — and we motorise blinds for residents who'd rather not raise and lower them by hand several times a day.",
     localContext: {
       title: "What we know about Playa San Juan",
       points: [
@@ -137,14 +137,14 @@ export const zonesDetail: Record<ZoneSlug, ZoneDetailContent> = {
       badge: "Our base",
     },
     intro:
-      "Mutxamel isn't just another area for us — it's where it all started. Julián began repairing blinds for neighbours and acquaintances in Mutxamel over 20 years ago, and we're still here today, with Juan and Valentín working alongside him in the same town.\n\nThat means our relationship with a lot of customers in Mutxamel is a bit different: we know each other, we often know which building you're in, and quite often we already know what kind of blind your home has before we even arrive. The town has a mix of older housing — with the classic PVC blinds you'd expect — and newer builds where we're already seeing factory-fitted motorisation.\n\nBeing our base means there's no travel time in Mutxamel: if something's urgent, we're usually the first ones able to drop by. We repair straps, axles and motors on the old-style blinds, fit made-to-measure fly screens, and motorise the ones still being raised by hand.\n\nIf you're from Mutxamel, you've probably already met someone we've worked for. And if you're new to the town, we're happy to explain how we work before you decide anything.",
+      "Mutxamel isn't just another area for us — it's where our Alicante chapter started. Julián brings over 30 years of experience as a blind fitter from Buenos Aires — he's been in Alicante since 2023, when he settled in Mutxamel, and today Juan and Brisa work alongside him in the same town.\n\nThat means our relationship with a lot of customers in Mutxamel is a bit different: we know each other, we often know which building you're in, and quite often we already know what kind of blind your home has before we even arrive. The town has a mix of older housing — with the classic PVC blinds you'd expect — and newer builds where we're already seeing factory-fitted motorisation.\n\nBeing our base means there's no travel time in Mutxamel: if something's urgent, we're usually the first ones able to drop by. We repair straps, axles and motors on the old-style blinds, fit made-to-measure fly screens, and motorise the ones still being raised by hand.\n\nIf you're from Mutxamel, you've probably already met someone we've worked for. And if you're new to the town, we're happy to explain how we work before you decide anything.",
     localContext: {
       title: "What we know about Mutxamel",
       points: [
         "It's our base: no travel time, so we're often the first able to help.",
         "We personally know a good share of the neighbours we work for in town.",
         "A mix of older housing with classic PVC blinds and newer builds with factory motorisation.",
-        "Over 20 years working in the same town where we live.",
+        "Over 30 years of craft, in the same town we've lived in since 2023.",
       ],
     },
     servicesOffered: [
@@ -167,7 +167,7 @@ export const zonesDetail: Record<ZoneSlug, ZoneDetailContent> = {
     faq: [
       {
         question: "Is Persianas Bayres based in Mutxamel?",
-        answer: "Yes, that's where we've had our base for over 20 years, and where it all started with Julián.",
+        answer: "Yes, that's where we've had our base since 2023, when Julián settled in Alicante with over 30 years of craft from Buenos Aires.",
       },
       {
         question: "Do you handle same-day jobs in Mutxamel?",

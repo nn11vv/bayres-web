@@ -18,7 +18,7 @@ const fraunces = Fraunces({
 });
 
 const DESCRIPTION =
-  "Empresa familiar en Alicante con más de 20 años. Reparación, instalación y motorización de persianas y mosquiteras. +200 reseñas ⭐. English spoken.";
+  "Más de 30 años de oficio desde Buenos Aires, en Alicante desde 2023. Reparación, instalación y motorización de persianas y mosquiteras. +200 reseñas ⭐. English spoken.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.domain),

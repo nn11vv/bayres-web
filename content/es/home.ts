@@ -6,7 +6,7 @@ export const home: HomeContent = {
     headline: "Persianas, mosquiteras y más.",
     headlineAccent: "Con la confianza de 3 generaciones.",
     subheadline:
-      "Empresa familiar en Alicante con más de 20 años reparando, instalando y mejorando el hogar. Rápidos cuando urge, honestos siempre.",
+      "Más de 30 años de oficio desde Buenos Aires, en Alicante desde 2023: reparando, instalando y mejorando el hogar. Rápidos cuando urge, honestos siempre.",
     ctaWhatsApp: "Consulta por WhatsApp",
     ctaForm: "Pedir presupuesto",
     trustPills: [
@@ -19,7 +19,7 @@ export const home: HomeContent = {
   stats: [
     { value: 200, suffix: "+", label: "Reseñas en Google" },
     { value: 5, decimals: 1, suffix: "", label: "Valoración media" },
-    { value: 20, suffix: "+", label: "Años de experiencia" },
+    { value: 30, suffix: "+", label: "Años de oficio" },
     { value: 3, suffix: "", label: "Generaciones" },
   ],
   services: {
@@ -43,7 +43,7 @@ export const home: HomeContent = {
         icon: "users",
         title: "3 generaciones de oficio",
         description:
-          "Julián, Juan y Valentín. Empresa familiar donde cada trabajo lleva el apellido detrás. El trabajo bien hecho no es un eslogan, es una tradición.",
+          "Julián, Juan y Brisa. Empresa familiar donde cada trabajo lleva el apellido detrás. El trabajo bien hecho no es un eslogan, es una tradición.",
       },
       {
         icon: "wallet",

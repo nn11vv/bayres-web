@@ -38,8 +38,8 @@ export async function generateMetadata({
 
   const description =
     locale === "es"
-      ? `Reparación e instalación de persianas y mosquiteras en ${zone.name}. Empresa familiar con más de 20 años. +200 reseñas ⭐. Consulta sin compromiso.`
-      : `Blind repair, installation and fly screens in ${zone.name}. Family business with 20+ years experience. +200 five-star reviews. English-speaking team.`;
+      ? `Reparación e instalación de persianas y mosquiteras en ${zone.name}. Más de 30 años de oficio, en Alicante desde 2023. +200 reseñas ⭐. Consulta sin compromiso.`
+      : `Blind repair, installation and fly screens in ${zone.name}. 30+ years of craft, in Alicante since 2023. +200 five-star reviews. English-speaking team.`;
 
   return {
     title,

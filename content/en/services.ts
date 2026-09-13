@@ -8,7 +8,7 @@ export const services: ServiceContent[] = [
     title: "Blinds",
     shortDescription: "Repair, installation and motorisation of home blinds.",
     longDescription:
-      "We repair, install and motorise PVC and aluminium blinds for private homes. A broken strap, a failing motor, or a brand new blind — we've been doing this for 20 years.",
+      "We repair, install and motorise PVC and aluminium blinds for private homes. A broken strap, a failing motor, or a brand new blind — we've been doing this for 30 years.",
     features: [
       "Repair of straps, cords and axles",
       "Installation of new blinds",

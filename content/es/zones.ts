@@ -12,7 +12,7 @@ const COPY: Record<string, { name: string; description: string }> = {
   },
   mutxamel: {
     name: "Mutxamel",
-    description: "Aquí tenemos nuestra base, desde hace más de 20 años.",
+    description: "Aquí tenemos nuestra base desde 2023.",
   },
   alicante: {
     name: "Alicante",

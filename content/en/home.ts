@@ -6,7 +6,7 @@ export const home: HomeContent = {
     headline: "Blinds, fly screens, and more.",
     headlineAccent: "Three generations of craftsmanship.",
     subheadline:
-      "A family business in Alicante with over 20 years fixing, installing and improving homes. Quick when urgent, honest always.",
+      "Over 30 years of craft from Buenos Aires, in Alicante since 2023: fixing, installing and improving homes. Quick when urgent, honest always.",
     ctaWhatsApp: "Chat on WhatsApp",
     ctaForm: "Request a quote",
     trustPills: [
@@ -19,7 +19,7 @@ export const home: HomeContent = {
   stats: [
     { value: 200, suffix: "+", label: "Google reviews" },
     { value: 5, decimals: 1, suffix: "", label: "Average rating" },
-    { value: 20, suffix: "+", label: "Years of experience" },
+    { value: 30, suffix: "+", label: "Years of craft" },
     { value: 3, suffix: "", label: "Generations" },
   ],
   services: {
@@ -43,7 +43,7 @@ export const home: HomeContent = {
         icon: "users",
         title: "Three generations of trade",
         description:
-          "Julián, Juan and Valentín. A family business where every job carries the family name. A job well done isn't a slogan here, it's tradition.",
+          "Julián, Juan and Brisa. A family business where every job carries the family name. A job well done isn't a slogan here, it's tradition.",
       },
       {
         icon: "wallet",

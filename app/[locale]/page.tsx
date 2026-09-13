@@ -15,12 +15,12 @@ const META = {
     title:
       "Persianista en Alicante · Reparación e instalación de persianas y mosquiteras",
     description:
-      "Empresa familiar en Alicante con más de 20 años. Reparación, instalación y motorización de persianas y mosquiteras. +200 reseñas 5⭐. Presupuesto sin compromiso.",
+      "Más de 30 años de oficio desde Buenos Aires, en Alicante desde 2023. Reparación, instalación y motorización de persianas y mosquiteras. +200 reseñas 5⭐. Presupuesto sin compromiso.",
   },
   en: {
     title: "Blind & Fly Screen Repair Alicante · English-speaking service",
     description:
-      "Family-run business in Alicante with 20+ years of experience. Blind repair, installation and motorisation, plus fly screens. +200 five-star reviews. English speaking team.",
+      "Over 30 years of craft from Buenos Aires, in Alicante since 2023. Blind repair, installation and motorisation, plus fly screens. +200 five-star reviews. English speaking team.",
   },
 } as const;
 
