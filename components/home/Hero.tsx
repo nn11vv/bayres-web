@@ -57,7 +57,7 @@ export default async function Hero({ locale }: { locale: Locale }) {
             />
             <Link
               href={`/${locale}/contacto`}
-              className="inline-flex items-center justify-center rounded-full border border-bright/30 bg-bright/10 px-6 py-3 text-base font-medium text-white transition-colors hover:bg-bright/20"
+              className="inline-flex items-center justify-center rounded-full border border-bright/30 bg-bright/10 px-6 py-3 text-base font-medium text-white transition-all duration-200 hover:scale-[1.02] hover:bg-bright/20"
             >
               {hero.ctaForm}
             </Link>

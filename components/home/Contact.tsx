@@ -1,4 +1,5 @@
 import AppointmentForm from "@/components/ui/AppointmentForm";
+import RevealSection from "@/components/ui/RevealSection";
 import {
   TELEFONO_ES,
   TELEFONO_EN,
@@ -42,8 +43,8 @@ export default async function Contact({ locale }: { locale: Locale }) {
   const { contact } = home;
 
   return (
-    <section id="contacto" className="px-4 py-16 sm:px-6">
-      <div className="mx-auto max-w-4xl">
+    <section id="contacto" className="px-4 py-24 sm:px-6 sm:py-28">
+      <RevealSection className="mx-auto max-w-4xl">
         <div className="text-center">
           <span className="text-sm font-medium uppercase tracking-wide text-primary-bright">
             {contact.label}
@@ -62,10 +63,8 @@ export default async function Contact({ locale }: { locale: Locale }) {
               target={option.href.startsWith("http") ? "_blank" : undefined}
               rel={option.href.startsWith("http") ? "noopener noreferrer" : undefined}
               className={cn(
-                "rounded-2xl border border-white/10 bg-white/5 p-4 transition-colors hover:bg-white/10",
-                option.whatsapp
-                  ? "hover:border-whatsapp/50"
-                  : "hover:border-primary-bright/40",
+                "rounded-2xl border border-white/[0.06] bg-white/[0.02] p-4 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-white/5",
+                option.whatsapp ? "hover:border-whatsapp/50" : "hover:border-primary/30",
               )}
             >
               <p className="text-sm text-white/50">{option.label}</p>
@@ -74,14 +73,14 @@ export default async function Contact({ locale }: { locale: Locale }) {
           ))}
         </div>
 
-        <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8">
+        <div className="mt-10 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 sm:p-8">
           <h3 className="font-heading text-xl text-white">{contact.formTitle}</h3>
           <p className="mt-1 text-sm text-white/70">{contact.formSubtitle}</p>
           <div className="mt-6">
             <AppointmentForm locale={locale} services={services} />
           </div>
         </div>
-      </div>
+      </RevealSection>
     </section>
   );
 }

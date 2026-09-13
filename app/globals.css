@@ -223,6 +223,19 @@ body {
   animation-fill-mode: forwards;
 }
 
+/* Floating WhatsApp bubble — subtle idle pulse so it doesn't disappear
+   into the corner. Disabled under reduced motion via the `motion-reduce:`
+   variant on the element itself. */
+@keyframes whatsapp-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+  }
+}
+
 /* Electricity "startup" sequence — current travels along the wire, then
    the bolt flashes once it arrives, with a single spark accent. One
    coordinated cycle, not a continuous shower of sparks like before. */

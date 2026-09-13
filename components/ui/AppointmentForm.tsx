@@ -160,7 +160,7 @@ export default function AppointmentForm({
           type="submit"
           disabled={status === "loading"}
           className={cn(
-            "w-full rounded-full bg-primary px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-primary-bright disabled:opacity-60",
+            "w-full rounded-full bg-primary px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:scale-[1.02] hover:bg-primary-bright hover:brightness-110 disabled:opacity-60 disabled:hover:scale-100",
           )}
         >
           {status === "loading" ? labels.submitting : labels.submit}

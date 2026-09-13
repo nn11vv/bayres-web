@@ -70,7 +70,7 @@ export default async function Reviews({ locale }: { locale: Locale }) {
             href={GOOGLE_REVIEWS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-white transition-colors duration-200 hover:bg-white/10"
+            className="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:scale-[1.02] hover:bg-white/10"
           >
             {home.reviews.ctaViewAll}
           </a>

@@ -1,10 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState, type MouseEvent } from "react";
 import ServiceIcon from "@/components/ui/ServiceIcons";
 import { serviceSlugFor } from "@/lib/constants";
-import { useReducedMotion } from "@/lib/useReducedMotion";
+import { useSpotlightCard } from "@/lib/useSpotlightCard";
 import type { Locale, ServiceContent } from "@/lib/types";
 
 const EXPLORE_LABEL: Record<Locale, string> = {
@@ -21,59 +20,11 @@ export default function ServiceCard({
   locale: Locale;
   index: number;
 }) {
-  const wrapperRef = useRef<HTMLDivElement>(null);
-  const cardRef = useRef<HTMLAnchorElement>(null);
-  const [revealed, setRevealed] = useState(false);
-  const reducedMotion = useReducedMotion();
-
-  useEffect(() => {
-    // Reduced motion already shows the card via `showRevealed` below —
-    // no need to observe anything.
-    if (reducedMotion) return;
-
-    const el = wrapperRef.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setRevealed(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2 },
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [reducedMotion]);
-
-  const showRevealed = reducedMotion || revealed;
-
-  function handleMouseMove(event: MouseEvent<HTMLAnchorElement>) {
-    const el = cardRef.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    el.style.setProperty("--mouse-x", `${event.clientX - rect.left}px`);
-    el.style.setProperty("--mouse-y", `${event.clientY - rect.top}px`);
-  }
+  const { wrapperRef, cardRef, handleMouseMove, wrapperClassName, wrapperStyle, reducedMotion } =
+    useSpotlightCard<HTMLAnchorElement>(index);
 
   return (
-    <div
-      ref={wrapperRef}
-      className={
-        reducedMotion
-          ? "opacity-100"
-          : `transition-[opacity,transform] duration-500 ease-out ${
-              showRevealed ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
-            }`
-      }
-      style={
-        reducedMotion
-          ? undefined
-          : { transitionDelay: showRevealed ? `${index * 90}ms` : "0ms" }
-      }
-    >
+    <div ref={wrapperRef} className={wrapperClassName} style={wrapperStyle}>
       <Link
         ref={cardRef}
         href={`/${locale}/servicios/${serviceSlugFor(service.slug, locale)}`}

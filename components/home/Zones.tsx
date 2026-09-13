@@ -1,4 +1,5 @@
 import Link from "next/link";
+import RevealSection from "@/components/ui/RevealSection";
 import { getContent } from "@/lib/i18n";
 import type { HomeContent, Locale, ZoneContent } from "@/lib/types";
 
@@ -15,8 +16,8 @@ export default async function Zones({ locale }: { locale: Locale }) {
   );
 
   return (
-    <section className="px-4 py-16 sm:px-6">
-      <div className="mx-auto max-w-4xl text-center">
+    <section className="px-4 py-24 sm:px-6 sm:py-28">
+      <RevealSection className="mx-auto max-w-4xl text-center">
         <span className="text-sm font-medium uppercase tracking-wide text-primary-bright">
           {home.zones.label}
         </span>
@@ -30,7 +31,7 @@ export default async function Zones({ locale }: { locale: Locale }) {
             <Link
               key={zone.slug}
               href={`/${locale}/zonas/${zone.slug}`}
-              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80 transition-colors hover:border-primary-bright/40 hover:bg-white/10"
+              className="rounded-full border border-white/10 bg-white/[0.02] px-4 py-2 text-sm text-white/80 transition-colors duration-200 hover:border-primary/30 hover:bg-white/5"
             >
               {zone.name}
             </Link>
@@ -38,7 +39,7 @@ export default async function Zones({ locale }: { locale: Locale }) {
         </div>
 
         <p className="mt-6 text-sm text-white/50">{home.zones.extendedNote}</p>
-      </div>
+      </RevealSection>
     </section>
   );
 }
