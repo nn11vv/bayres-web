@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import type { Locale, ServiceContent } from "@/lib/types";
+import { isServiceAvailable } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 type FormStatus = "idle" | "loading" | "success" | "error";
@@ -35,18 +36,18 @@ const LABELS: Record<Locale, Record<string, string>> = {
   },
 };
 
-function buildTimeSlots(): string[] {
-  const slots: string[] = [];
-  for (let hour = 9; hour <= 18; hour++) {
-    slots.push(`${String(hour).padStart(2, "0")}:00`);
-    if (hour !== 18) {
-      slots.push(`${String(hour).padStart(2, "0")}:30`);
-    }
-  }
-  return slots;
-}
-
-const TIME_SLOTS = buildTimeSlots();
+const TIME_SLOTS: Record<Locale, { value: string; label: string }[]> = {
+  es: [
+    { value: "manana", label: "Mañana (9 a 13h)" },
+    { value: "tarde", label: "Tarde (15 a 18h)" },
+    { value: "cualquiera", label: "Me van bien ambas" },
+  ],
+  en: [
+    { value: "manana", label: "Morning (9am–1pm)" },
+    { value: "tarde", label: "Afternoon (3–6pm)" },
+    { value: "cualquiera", label: "Either works for me" },
+  ],
+};
 
 const fieldClass =
   "w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2 text-sm text-white placeholder:text-white/40 focus:border-primary-bright focus:outline-none";
@@ -62,6 +63,7 @@ export default function AppointmentForm({
 }) {
   const labels = LABELS[locale];
   const [status, setStatus] = useState<FormStatus>("idle");
+  const bookableServices = services.filter((service) => isServiceAvailable(service.slug));
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -124,7 +126,7 @@ export default function AppointmentForm({
           <option value="" disabled>
             {labels.servicePlaceholder}
           </option>
-          {services.map((service) => (
+          {bookableServices.map((service) => (
             <option key={service.slug} value={service.slug}>
               {service.title}
             </option>
@@ -140,9 +142,9 @@ export default function AppointmentForm({
           <option value="" disabled>
             {labels.timePlaceholder}
           </option>
-          {TIME_SLOTS.map((slot) => (
-            <option key={slot} value={slot}>
-              {slot}
+          {TIME_SLOTS[locale].map((slot) => (
+            <option key={slot.value} value={slot.value}>
+              {slot.label}
             </option>
           ))}
         </select>

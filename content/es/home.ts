@@ -6,7 +6,7 @@ export const home: HomeContent = {
     headline: "Persianas, mosquiteras y más.",
     headlineAccent: "Con la confianza de 3 generaciones.",
     subheadline:
-      "Más de 30 años de oficio desde Buenos Aires, en Alicante desde 2023: reparando, instalando y mejorando el hogar. Rápidos cuando urge, honestos siempre.",
+      "Más de 30 años de experiencia en reparación, instalación y motorización de persianas. Trabajo confiable y seguro. Cuidamos tu hogar.",
     ctaWhatsApp: "Consulta por WhatsApp",
     ctaForm: "Pedir presupuesto",
     trustPills: [
@@ -55,7 +55,7 @@ export const home: HomeContent = {
         icon: "languages",
         title: "Hablamos inglés",
         description:
-          "Sabemos que muchos vecinos de la Costa Blanca no hablan español. Por eso tenemos una línea directa en inglés: +34 663 208 814.",
+          "Sabemos que muchos vecinos de la Costa Blanca no hablan español. Atendemos en inglés, mismo número: +34 695 266 981.",
       },
       {
         icon: "wrench",
@@ -65,9 +65,9 @@ export const home: HomeContent = {
       },
       {
         icon: "pin",
-        title: "Toda la Costa Blanca",
+        title: "Alicante y Costa Blanca",
         description:
-          "Alicante, Playa San Juan, El Campello, Mutxamel, Bussot, Benidorm. Tu barrio, nuestra zona.",
+          "Alicante, San Vicente del Raspeig, San Juan de Alicante, Playa San Juan, El Campello, Mutxamel, Bussot, Villajoyosa, Benidorm y Coveta Fumá. Tu barrio, nuestra zona.",
       },
     ],
   },
@@ -81,7 +81,7 @@ export const home: HomeContent = {
     label: "Dónde trabajamos",
     title: "Cobertura en Alicante y Costa Blanca",
     subtitle: "Zonas donde vamos habitualmente. Fuera de estas, consulta sin compromiso.",
-    extendedNote: "También atendemos, bajo consulta: Jávea, Altea y Villajoyosa.",
+    extendedNote: "También atendemos, bajo consulta: Jávea y Altea.",
   },
   contact: {
     label: "Contacto",

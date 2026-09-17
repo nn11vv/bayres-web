@@ -6,7 +6,7 @@ export const home: HomeContent = {
     headline: "Blinds, fly screens, and more.",
     headlineAccent: "Three generations of craftsmanship.",
     subheadline:
-      "Over 30 years of craft from Buenos Aires, in Alicante since 2023: fixing, installing and improving homes. Quick when urgent, honest always.",
+      "Over 30 years of experience repairing, installing and motorising blinds. Reliable, trustworthy work. We take care of your home.",
     ctaWhatsApp: "Chat on WhatsApp",
     ctaForm: "Request a quote",
     trustPills: [
@@ -55,7 +55,7 @@ export const home: HomeContent = {
         icon: "languages",
         title: "English spoken",
         description:
-          "We know many Costa Blanca residents don't speak Spanish. That's why we have a direct English line: +34 663 208 814.",
+          "We know many Costa Blanca residents don't speak Spanish. We speak English too, same number: +34 695 266 981.",
       },
       {
         icon: "wrench",
@@ -65,9 +65,9 @@ export const home: HomeContent = {
       },
       {
         icon: "pin",
-        title: "All across the Costa Blanca",
+        title: "Alicante & Costa Blanca",
         description:
-          "Alicante, Playa San Juan, El Campello, Mutxamel, Bussot, Benidorm. Your neighbourhood, our patch.",
+          "Alicante, San Vicente del Raspeig, San Juan de Alicante, Playa San Juan, El Campello, Mutxamel, Bussot, Villajoyosa, Benidorm and Coveta Fumá. Your neighbourhood, our patch.",
       },
     ],
   },
@@ -81,7 +81,7 @@ export const home: HomeContent = {
     label: "Where we work",
     title: "Coverage across Alicante & Costa Blanca",
     subtitle: "Areas we cover regularly. Outside these, ask us — no obligation.",
-    extendedNote: "We also cover, on request: Jávea, Altea and Villajoyosa.",
+    extendedNote: "We also cover, on request: Jávea and Altea.",
   },
   contact: {
     label: "Contact",

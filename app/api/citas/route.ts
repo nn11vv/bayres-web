@@ -12,14 +12,26 @@ interface CitaPayload {
   description?: string;
 }
 
-const VALID_SERVICE_IDS = SERVICES.map((service) => service.id);
+const TIME_EMAIL_LABEL: Record<string, string> = {
+  manana: "Mañana (9 a 13h)",
+  tarde: "Tarde (15 a 18h)",
+  cualquiera: "Cualquiera",
+};
+
+const VALID_SERVICE_IDS = SERVICES.filter((service) => service.available).map(
+  (service) => service.id,
+);
+
+// AppointmentForm's "Hora preferida" now sends the bucket directly
+// ("manana" | "tarde" | "cualquiera") instead of an exact clock time —
+// "cualquiera" (no preference) stores as null, same as no selection.
+const FRANJA_LABEL: Record<string, "manana" | "tarde"> = {
+  manana: "manana",
+  tarde: "tarde",
+};
 
 function franjaFromTime(time: string): "manana" | "tarde" | null {
-  const hour = Number.parseInt(time.split(":")[0] ?? "", 10);
-  if (Number.isNaN(hour)) {
-    return null;
-  }
-  return hour < 14 ? "manana" : "tarde";
+  return FRANJA_LABEL[time] ?? null;
 }
 
 export async function POST(request: Request) {
@@ -64,7 +76,10 @@ export async function POST(request: Request) {
       servicio: service,
       descripcion: description || null,
       franja,
-      hora_pref: time || null,
+      // The form no longer collects an exact hour (just manana/tarde/no
+      // preference) — hora_pref stays in the schema but new inserts leave
+      // it null instead of a granular value.
+      hora_pref: null,
       // `notas` is reserved for Julián/Juan's own notes from the
       // management panel — the form never writes to it.
       notas: null,
@@ -104,7 +119,7 @@ export async function POST(request: Request) {
           `Nombre: ${name}`,
           `Teléfono: ${phone}`,
           `Servicio: ${service}`,
-          time ? `Hora preferida: ${time}` : null,
+          time ? `Hora preferida: ${TIME_EMAIL_LABEL[time] ?? time}` : null,
           description ? `Descripción: ${description}` : null,
           `Idioma: ${locale}`,
         ]

@@ -1,37 +1,23 @@
 import AppointmentForm from "@/components/ui/AppointmentForm";
 import RevealSection from "@/components/ui/RevealSection";
-import {
-  TELEFONO_ES,
-  TELEFONO_EN,
-  WHATSAPP_ES,
-  WHATSAPP_EN,
-} from "@/lib/constants";
+import { TELEFONO_ES, WHATSAPP_ES } from "@/lib/constants";
 import { getContent } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import type { HomeContent, Locale, ServiceContent } from "@/lib/types";
 
+// Single number for calls and WhatsApp now — one card per channel, no
+// ES/EN split (there's no separate English line anymore).
 const CONTACT_OPTIONS = (locale: Locale) => [
   {
-    label: locale === "es" ? "WhatsApp (español)" : "WhatsApp (Spanish)",
-    value: "+34 695 266 981",
+    label: "WhatsApp",
+    value: TELEFONO_ES,
     href: WHATSAPP_ES,
     whatsapp: true,
   },
   {
-    label: locale === "es" ? "WhatsApp (inglés)" : "WhatsApp (English)",
-    value: "+34 663 208 814",
-    href: WHATSAPP_EN,
-    whatsapp: true,
-  },
-  {
-    label: locale === "es" ? "Teléfono (español)" : "Phone (Spanish)",
+    label: locale === "es" ? "Teléfono" : "Phone",
     value: TELEFONO_ES,
     href: `tel:${TELEFONO_ES.replace(/\s/g, "")}`,
-  },
-  {
-    label: locale === "es" ? "Teléfono (inglés)" : "Phone (English)",
-    value: TELEFONO_EN,
-    href: `tel:${TELEFONO_EN.replace(/\s/g, "")}`,
   },
 ];
 
