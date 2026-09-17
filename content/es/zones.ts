@@ -2,6 +2,16 @@ import { LOCATIONS } from "@/lib/constants";
 import type { ZoneContent } from "@/lib/types";
 
 const COPY: Record<string, { name: string; description: string }> = {
+  "san-vicente-del-raspeig": {
+    // TODO: contenido genérico — reemplazar con detalle local real antes de publicar.
+    name: "San Vicente del Raspeig",
+    description: "Servicio habitual, muy cerca de nuestra base en Mutxamel.",
+  },
+  "san-juan-de-alicante": {
+    // TODO: contenido genérico — reemplazar con detalle local real antes de publicar.
+    name: "San Juan de Alicante",
+    description: "Servicio habitual en el municipio, junto a Playa San Juan.",
+  },
   "playa-san-juan": {
     name: "Playa San Juan",
     description: "Nuestra zona de mayor actividad, a minutos de Mutxamel.",
@@ -26,6 +36,11 @@ const COPY: Record<string, { name: string; description: string }> = {
     name: "Benidorm",
     description: "Atendemos viviendas y comunidades de la zona.",
   },
+  "coveta-fuma": {
+    // TODO: contenido genérico — reemplazar con detalle local real antes de publicar.
+    name: "Coveta Fumá",
+    description: "Servicio habitual en la zona.",
+  },
   javea: {
     name: "Jávea",
     description: "Zona ampliada: consulta disponibilidad sin compromiso.",
@@ -36,7 +51,7 @@ const COPY: Record<string, { name: string; description: string }> = {
   },
   villajoyosa: {
     name: "Villajoyosa",
-    description: "Zona ampliada: consulta disponibilidad sin compromiso.",
+    description: "Municipio pesquero con casco histórico. Servicio habitual.",
   },
 };
 

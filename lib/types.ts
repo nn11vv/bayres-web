@@ -26,15 +26,18 @@ export interface Coordinates {
 }
 
 export type ZoneSlug =
+  | "alicante"
+  | "san-vicente-del-raspeig"
+  | "san-juan-de-alicante"
   | "playa-san-juan"
   | "el-campello"
   | "mutxamel"
-  | "alicante"
   | "bussot"
+  | "villajoyosa"
   | "benidorm"
+  | "coveta-fuma"
   | "javea"
-  | "altea"
-  | "villajoyosa";
+  | "altea";
 
 export interface Location {
   slug: ZoneSlug;

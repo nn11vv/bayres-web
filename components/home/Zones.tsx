@@ -9,10 +9,20 @@ export default async function Zones({ locale }: { locale: Locale }) {
     getContent<ZoneContent[]>(locale, "zones"),
   ]);
 
-  const core = zones.filter((zone) =>
-    ["playa-san-juan", "el-campello", "mutxamel", "alicante", "bussot", "benidorm"].includes(
-      zone.slug,
-    ),
+  const CORE_ORDER = [
+    "alicante",
+    "san-vicente-del-raspeig",
+    "san-juan-de-alicante",
+    "playa-san-juan",
+    "el-campello",
+    "mutxamel",
+    "bussot",
+    "villajoyosa",
+    "benidorm",
+    "coveta-fuma",
+  ];
+  const core = CORE_ORDER.map((slug) => zones.find((zone) => zone.slug === slug)).filter(
+    (zone): zone is (typeof zones)[number] => zone !== undefined,
   );
 
   return (

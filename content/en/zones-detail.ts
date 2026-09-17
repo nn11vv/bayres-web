@@ -1,6 +1,112 @@
 import type { ZoneDetailContent, ZoneSlug } from "@/lib/types";
 
 export const zonesDetail: Record<ZoneSlug, ZoneDetailContent> = {
+  // TODO: generic content — replace with real local detail (architecture,
+  // neighbourhoods, real distance) before publishing.
+  "san-vicente-del-raspeig": {
+    name: "San Vicente del Raspeig",
+    slug: "san-vicente-del-raspeig",
+    hero: {
+      title: "Blind Repair in San Vicente del Raspeig",
+      subtitle: "Repairs, installation and fly screens. Regular service in the area.",
+      badge: "Regular service in the area",
+    },
+    intro:
+      "San Vicente del Raspeig sits right next to Mutxamel, so it's one of the areas we can reach fastest. We work on detached homes and flats alike, with the same approach as the rest of our regular coverage area: we check first, and only replace what actually needs replacing.\n\nIf you need repairs, installation or made-to-measure fly screens in San Vicente, get in touch and we'll arrange a visit.",
+    localContext: {
+      title: "What we know about San Vicente del Raspeig",
+      points: [
+        "Right next to our base in Mutxamel.",
+        "We work on detached homes and flats alike.",
+        "Same approach across the area: check first before recommending a replacement.",
+      ],
+    },
+    servicesOffered: [
+      {
+        icon: "🪟",
+        title: "Blind repair",
+        description: "Straps, cords, spindles and motors replaced.",
+      },
+      {
+        icon: "🦟",
+        title: "Made-to-measure fly screens",
+        description: "Pleated, roller and fixed.",
+      },
+      {
+        icon: "⚡",
+        title: "Motorisation",
+        description: "We automate existing blinds.",
+      },
+    ],
+    faq: [
+      {
+        question: "Do you work in San Vicente del Raspeig?",
+        answer: "Yes, it's one of our regular areas, right next to our base in Mutxamel.",
+      },
+      {
+        question: "Do you speak English in San Vicente del Raspeig?",
+        answer: "Yes, no problem.",
+      },
+    ],
+    cta: {
+      title: "Need help in San Vicente del Raspeig?",
+      subtitle: "Tell us what you need and we'll arrange a visit.",
+    },
+  },
+
+  // TODO: generic content — replace with real local detail (architecture,
+  // neighbourhoods, real distance) before publishing.
+  "san-juan-de-alicante": {
+    name: "San Juan de Alicante",
+    slug: "san-juan-de-alicante",
+    hero: {
+      title: "Blind Repair in San Juan de Alicante",
+      subtitle: "Repairs, installation and fly screens. Regular service in the area.",
+      badge: "Regular service in the area",
+    },
+    intro:
+      "San Juan de Alicante is its own municipality, next to Playa San Juan and minutes from our base in Mutxamel — we cover it regularly, both homes and residents' communities.\n\nIf you need repairs, installation or made-to-measure fly screens in San Juan de Alicante, get in touch and we'll arrange a visit.",
+    localContext: {
+      title: "What we know about San Juan de Alicante",
+      points: [
+        "Its own municipality, next to Playa San Juan.",
+        "Minutes from our base in Mutxamel.",
+        "We work on private homes and residents' communities alike.",
+      ],
+    },
+    servicesOffered: [
+      {
+        icon: "🪟",
+        title: "Blind repair",
+        description: "Straps, cords, spindles and motors replaced.",
+      },
+      {
+        icon: "🦟",
+        title: "Made-to-measure fly screens",
+        description: "Pleated, roller and fixed.",
+      },
+      {
+        icon: "⚡",
+        title: "Motorisation",
+        description: "We automate existing blinds.",
+      },
+    ],
+    faq: [
+      {
+        question: "Do you work in San Juan de Alicante?",
+        answer: "Yes, it's one of our regular areas, next to Playa San Juan.",
+      },
+      {
+        question: "Do you speak English in San Juan de Alicante?",
+        answer: "Yes, no problem.",
+      },
+    ],
+    cta: {
+      title: "Need help in San Juan de Alicante?",
+      subtitle: "Tell us what you need and we'll arrange a visit.",
+    },
+  },
+
   "playa-san-juan": {
     name: "Playa San Juan",
     slug: "playa-san-juan",
@@ -56,7 +162,7 @@ export const zonesDetail: Record<ZoneSlug, ZoneDetailContent> = {
       {
         question: "Is there an English-speaking service in Playa San Juan?",
         answer:
-          "Yes, no problem at all. A good share of our customers in the area are foreign residents and we have a direct English line.",
+          "Yes, no problem at all. A good share of our customers in the area are foreign residents and we're happy to help in English.",
       },
     ],
     cta: {
@@ -366,6 +472,54 @@ export const zonesDetail: Record<ZoneSlug, ZoneDetailContent> = {
     },
   },
 
+  // TODO: generic content — replace with real local detail (exact
+  // geographic position, neighbourhood, real distance) before publishing.
+  "coveta-fuma": {
+    name: "Coveta Fumá",
+    slug: "coveta-fuma",
+    hero: {
+      title: "Blind Repair in Coveta Fumá",
+      subtitle: "Repairs, installation and fly screens. Regular service in the area.",
+      badge: "Regular service in the area",
+    },
+    intro:
+      "Coveta Fumá is one of our regular working areas — we cover private homes and residents' communities alike, with the same approach as the rest of our area: we check first, and only replace what actually needs replacing.\n\nIf you need repairs, installation or made-to-measure fly screens in Coveta Fumá, get in touch and we'll arrange a visit.",
+    localContext: {
+      title: "What we know about Coveta Fumá",
+      points: [
+        "One of our regular working areas.",
+        "We work on private homes and residents' communities alike.",
+        "Same approach across the area: check first before recommending a replacement.",
+      ],
+    },
+    servicesOffered: [
+      {
+        icon: "🪟",
+        title: "Blind repair",
+        description: "Straps, cords, spindles and motors replaced.",
+      },
+      {
+        icon: "🦟",
+        title: "Made-to-measure fly screens",
+        description: "Pleated, roller and fixed.",
+      },
+    ],
+    faq: [
+      {
+        question: "Do you work in Coveta Fumá?",
+        answer: "Yes, it's one of our regular working areas.",
+      },
+      {
+        question: "Do you speak English in Coveta Fumá?",
+        answer: "Yes, no problem.",
+      },
+    ],
+    cta: {
+      title: "Need help in Coveta Fumá?",
+      subtitle: "Tell us what you need and we'll arrange a visit.",
+    },
+  },
+
   javea: {
     name: "Jávea",
     slug: "javea",
@@ -466,17 +620,17 @@ export const zonesDetail: Record<ZoneSlug, ZoneDetailContent> = {
     slug: "villajoyosa",
     hero: {
       title: "Blind Repair in Villajoyosa",
-      subtitle: "Service on request for larger jobs.",
-      badge: "Extended area · on request",
+      subtitle: "Repairs, installation and fly screens. Regular service in the area.",
+      badge: "Regular service in the area",
     },
     intro:
-      "Villajoyosa is a charming fishing town with a good deal of historic housing in the old quarter, which comes with fairly specific needs: smaller openings, older blinds, and buildings with heritage or unusual features.\n\nWe take on enquiries in Villajoyosa on request, assessing each case individually since historic properties usually need bespoke solutions rather than standard installation. If you've got a property in the old quarter with blinds that don't fit standard sizes, send us the details and we'll go through your options.",
+      "Villajoyosa is a charming fishing town with a good deal of historic housing in the old quarter, which comes with fairly specific needs: smaller openings, older blinds, and buildings with heritage or unusual features.\n\nWe cover Villajoyosa regularly, both old-quarter properties and newer builds closer to the coast. Historic properties usually need bespoke solutions rather than standard installation — if you've got a property with blinds that don't fit standard sizes, send us the details and we'll go through your options.",
     localContext: {
       title: "What we know about Villajoyosa",
       points: [
         "Historic housing in the old quarter with specific requirements.",
         "Older openings and blinds that don't always fit standard sizes.",
-        "Service on request, assessing each case individually.",
+        "Between El Campello and Benidorm — within our regular coverage area.",
       ],
     },
     servicesOffered: [
@@ -488,22 +642,22 @@ export const zonesDetail: Record<ZoneSlug, ZoneDetailContent> = {
       {
         icon: "🦟",
         title: "Made-to-measure fly screens",
-        description: "On request.",
+        description: "Pleated, roller and fixed, for any type of home.",
       },
     ],
     faq: [
       {
         question: "Do you work on historic properties in Villajoyosa?",
-        answer: "Yes, on request. Old-quarter properties usually need bespoke measurements rather than standard installation.",
+        answer: "Yes. Old-quarter properties usually need bespoke measurements rather than standard installation, and it's something we do regularly.",
       },
       {
-        question: "Do you take on one-off enquiries in Villajoyosa?",
-        answer: "We assess each case. Send us the details of your property and we'll see if we can arrange a visit.",
+        question: "Do you cover Villajoyosa regularly?",
+        answer: "Yes, it's one of our regular working areas, not just one-off requests.",
       },
     ],
     cta: {
-      title: "Got a property in Villajoyosa's old quarter?",
-      subtitle: "Tell us about your blinds.",
+      title: "Got a property in Villajoyosa?",
+      subtitle: "Tell us what you need and we'll arrange a visit.",
     },
   },
 };

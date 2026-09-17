@@ -9,12 +9,12 @@ const META = {
   es: {
     title: "Zonas donde trabajamos",
     description:
-      "Persianas Bayres presta servicio en Alicante y la Costa Blanca: Playa San Juan, El Campello, Mutxamel, Alicante, Bussot y Benidorm. Zonas ampliadas bajo consulta.",
+      "Persianas Bayres presta servicio en Alicante y la Costa Blanca: Alicante, San Vicente del Raspeig, San Juan de Alicante, Playa San Juan, El Campello, Mutxamel, Bussot, Villajoyosa y Benidorm. Zonas ampliadas bajo consulta.",
   },
   en: {
     title: "Areas we cover",
     description:
-      "Persianas Bayres serves Alicante and the Costa Blanca: Playa San Juan, El Campello, Mutxamel, Alicante, Bussot and Benidorm. Extended areas on request.",
+      "Persianas Bayres serves Alicante and the Costa Blanca: Alicante, San Vicente del Raspeig, San Juan de Alicante, Playa San Juan, El Campello, Mutxamel, Bussot, Villajoyosa and Benidorm. Extended areas on request.",
   },
 } as const;
 

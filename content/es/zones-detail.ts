@@ -1,6 +1,112 @@
 import type { ZoneDetailContent, ZoneSlug } from "@/lib/types";
 
 export const zonesDetail: Record<ZoneSlug, ZoneDetailContent> = {
+  // TODO: contenido genérico — reemplazar con detalle local real
+  // (arquitectura, barrios, distancia real) antes de publicar.
+  "san-vicente-del-raspeig": {
+    name: "San Vicente del Raspeig",
+    slug: "san-vicente-del-raspeig",
+    hero: {
+      title: "Persianista en San Vicente del Raspeig",
+      subtitle: "Reparación, instalación y mosquiteras. Servicio habitual en la zona.",
+      badge: "Servicio habitual en la zona",
+    },
+    intro:
+      "San Vicente del Raspeig está pegado a Mutxamel, así que es una de las zonas donde llegamos más rápido. Atendemos tanto viviendas unifamiliares como pisos, con el mismo criterio que en el resto de nuestra zona habitual: revisamos antes de recomendar, y solo cambiamos lo que hace falta cambiar.\n\nSi necesitás reparación, instalación o mosquiteras a medida en San Vicente, contactanos y coordinamos una visita.",
+    localContext: {
+      title: "Lo que sabemos de San Vicente del Raspeig",
+      points: [
+        "Muy cerca de nuestra base en Mutxamel.",
+        "Trabajamos tanto en viviendas unifamiliares como en pisos.",
+        "Mismo criterio en toda la zona: revisar antes de recomendar cambiar.",
+      ],
+    },
+    servicesOffered: [
+      {
+        icon: "🪟",
+        title: "Reparación de persianas",
+        description: "Cambio de cintas, correas, ejes y motores.",
+      },
+      {
+        icon: "🦟",
+        title: "Mosquiteras a medida",
+        description: "Plisadas, enrollables y fijas.",
+      },
+      {
+        icon: "⚡",
+        title: "Motorización",
+        description: "Automatizamos persianas existentes.",
+      },
+    ],
+    faq: [
+      {
+        question: "¿Trabajan en San Vicente del Raspeig?",
+        answer: "Sí, es una de nuestras zonas habituales, muy cerca de nuestra base en Mutxamel.",
+      },
+      {
+        question: "¿Atienden en inglés en San Vicente del Raspeig?",
+        answer: "Sí, sin problema.",
+      },
+    ],
+    cta: {
+      title: "¿Necesitás ayuda en San Vicente del Raspeig?",
+      subtitle: "Contanos qué necesitás y coordinamos una visita.",
+    },
+  },
+
+  // TODO: contenido genérico — reemplazar con detalle local real
+  // (arquitectura, barrios, distancia real) antes de publicar.
+  "san-juan-de-alicante": {
+    name: "San Juan de Alicante",
+    slug: "san-juan-de-alicante",
+    hero: {
+      title: "Persianista en San Juan de Alicante",
+      subtitle: "Reparación, instalación y mosquiteras. Servicio habitual en la zona.",
+      badge: "Servicio habitual en la zona",
+    },
+    intro:
+      "San Juan de Alicante es un municipio propio, junto a Playa San Juan y a minutos de nuestra base en Mutxamel — atendemos aquí de forma habitual, tanto viviendas como comunidades de vecinos.\n\nSi necesitás reparación, instalación o mosquiteras a medida en San Juan de Alicante, contactanos y coordinamos una visita.",
+    localContext: {
+      title: "Lo que sabemos de San Juan de Alicante",
+      points: [
+        "Municipio propio, junto a Playa San Juan.",
+        "A minutos de nuestra base en Mutxamel.",
+        "Atendemos tanto viviendas particulares como comunidades de vecinos.",
+      ],
+    },
+    servicesOffered: [
+      {
+        icon: "🪟",
+        title: "Reparación de persianas",
+        description: "Cambio de cintas, correas, ejes y motores.",
+      },
+      {
+        icon: "🦟",
+        title: "Mosquiteras a medida",
+        description: "Plisadas, enrollables y fijas.",
+      },
+      {
+        icon: "⚡",
+        title: "Motorización",
+        description: "Automatizamos persianas existentes.",
+      },
+    ],
+    faq: [
+      {
+        question: "¿Trabajan en San Juan de Alicante?",
+        answer: "Sí, es una de nuestras zonas habituales, junto a Playa San Juan.",
+      },
+      {
+        question: "¿Atienden en inglés en San Juan de Alicante?",
+        answer: "Sí, sin problema.",
+      },
+    ],
+    cta: {
+      title: "¿Necesitás ayuda en San Juan de Alicante?",
+      subtitle: "Contanos qué necesitás y coordinamos una visita.",
+    },
+  },
+
   "playa-san-juan": {
     name: "Playa San Juan",
     slug: "playa-san-juan",
@@ -59,7 +165,7 @@ export const zonesDetail: Record<ZoneSlug, ZoneDetailContent> = {
       {
         question: "¿Atienden en inglés en Playa San Juan?",
         answer:
-          "Sí, sin problema. Buena parte de nuestros clientes en la zona son residentes extranjeros y tenemos línea directa en inglés.",
+          "Sí, sin problema. Buena parte de nuestros clientes en la zona son residentes extranjeros y atendemos en inglés sin problema.",
       },
     ],
     cta: {
@@ -382,6 +488,54 @@ export const zonesDetail: Record<ZoneSlug, ZoneDetailContent> = {
     },
   },
 
+  // TODO: contenido genérico — reemplazar con detalle local real
+  // (posición geográfica exacta, barrio, distancia real) antes de publicar.
+  "coveta-fuma": {
+    name: "Coveta Fumá",
+    slug: "coveta-fuma",
+    hero: {
+      title: "Persianista en Coveta Fumá",
+      subtitle: "Reparación, instalación y mosquiteras. Servicio habitual en la zona.",
+      badge: "Servicio habitual en la zona",
+    },
+    intro:
+      "Coveta Fumá es una de nuestras zonas de trabajo habitual — atendemos tanto viviendas particulares como comunidades, con el mismo criterio que en el resto de nuestra zona: revisamos antes de recomendar, y solo cambiamos lo que hace falta cambiar.\n\nSi necesitás reparación, instalación o mosquiteras a medida en Coveta Fumá, contactanos y coordinamos una visita.",
+    localContext: {
+      title: "Lo que sabemos de Coveta Fumá",
+      points: [
+        "Zona de trabajo habitual para nosotros.",
+        "Atendemos tanto viviendas particulares como comunidades de vecinos.",
+        "Mismo criterio en toda la zona: revisar antes de recomendar cambiar.",
+      ],
+    },
+    servicesOffered: [
+      {
+        icon: "🪟",
+        title: "Reparación de persianas",
+        description: "Cambio de cintas, correas, ejes y motores.",
+      },
+      {
+        icon: "🦟",
+        title: "Mosquiteras a medida",
+        description: "Plisadas, enrollables y fijas.",
+      },
+    ],
+    faq: [
+      {
+        question: "¿Trabajan en Coveta Fumá?",
+        answer: "Sí, es una de nuestras zonas de trabajo habitual.",
+      },
+      {
+        question: "¿Atienden en inglés en Coveta Fumá?",
+        answer: "Sí, sin problema.",
+      },
+    ],
+    cta: {
+      title: "¿Necesitás ayuda en Coveta Fumá?",
+      subtitle: "Contanos qué necesitás y coordinamos una visita.",
+    },
+  },
+
   javea: {
     name: "Jávea",
     slug: "javea",
@@ -482,17 +636,17 @@ export const zonesDetail: Record<ZoneSlug, ZoneDetailContent> = {
     slug: "villajoyosa",
     hero: {
       title: "Persianista en Villajoyosa",
-      subtitle: "Servicio bajo consulta para trabajos grandes.",
-      badge: "Zona ampliada · bajo consulta",
+      subtitle: "Reparación, instalación y mosquiteras. Servicio habitual en la zona.",
+      badge: "Servicio habitual en la zona",
     },
     intro:
-      "Villajoyosa es un municipio pesquero con mucho encanto y bastante vivienda histórica en el casco antiguo, con necesidades bastante particulares: aberturas más pequeñas, persianas antiguas y edificios con protección o características especiales.\n\nAtendemos consultas en Villajoyosa bajo demanda, evaluando cada caso porque las viviendas históricas suelen requerir soluciones a medida más que instalación estándar. Si tenés una vivienda en el casco antiguo con persianas que no encajan en las medidas habituales, contanos los detalles y vemos qué opciones tenés.",
+      "Villajoyosa es un municipio pesquero con mucho encanto y bastante vivienda histórica en el casco antiguo, con necesidades bastante particulares: aberturas más pequeñas, persianas antiguas y edificios con protección o características especiales.\n\nAtendemos Villajoyosa de forma habitual, tanto viviendas del casco antiguo como construcciones más nuevas cerca de la costa. Las viviendas históricas suelen requerir soluciones a medida más que instalación estándar — si tenés una vivienda con persianas que no encajan en las medidas habituales, contanos los detalles y vemos qué opciones tenés.",
     localContext: {
       title: "Lo que sabemos de Villajoyosa",
       points: [
         "Vivienda histórica en el casco antiguo con necesidades específicas.",
         "Aberturas y persianas antiguas que no siempre encajan en medidas estándar.",
-        "Servicio bajo consulta, evaluando cada caso particular.",
+        "Entre El Campello y Benidorm — dentro de nuestra zona habitual de trabajo.",
       ],
     },
     servicesOffered: [
@@ -504,24 +658,24 @@ export const zonesDetail: Record<ZoneSlug, ZoneDetailContent> = {
       {
         icon: "🦟",
         title: "Mosquiteras a medida",
-        description: "Bajo consulta previa.",
+        description: "Plisadas, enrollables y fijas, para todo tipo de vivienda.",
       },
     ],
     faq: [
       {
         question: "¿Trabajan en viviendas históricas de Villajoyosa?",
         answer:
-          "Sí, bajo consulta. Las viviendas del casco antiguo suelen necesitar medidas a medida más que instalación estándar.",
+          "Sí. Las viviendas del casco antiguo suelen necesitar medidas a medida más que instalación estándar, y es algo que hacemos habitualmente.",
       },
       {
-        question: "¿Atienden consultas puntuales en Villajoyosa?",
+        question: "¿Atienden Villajoyosa de forma habitual?",
         answer:
-          "Evaluamos cada caso. Contanos los detalles de tu vivienda y vemos si podemos coordinar una visita.",
+          "Sí, es una de nuestras zonas de trabajo regular, no solo bajo consulta puntual.",
       },
     ],
     cta: {
-      title: "¿Tenés una vivienda en el casco antiguo de Villajoyosa?",
-      subtitle: "Contanos los detalles de tus persianas.",
+      title: "¿Tenés una vivienda en Villajoyosa?",
+      subtitle: "Contanos qué necesitás y coordinamos una visita.",
     },
   },
 };

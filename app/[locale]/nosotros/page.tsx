@@ -85,11 +85,13 @@ export default async function NosotrosPage({
               atajos.
             </p>
             <p>
-              Trabajamos en Alicante y la Costa Blanca — Playa San Juan, El
-              Campello, Mutxamel, Bussot, Benidorm— y atendemos consultas en
-              zonas ampliadas como Jávea, Altea y Villajoyosa. Buena parte de
-              nuestros clientes son residentes británicos y nórdicos de la
-              zona, así que también atendemos en inglés sin problema.
+              Trabajamos en Alicante y la Costa Blanca — Alicante, San
+              Vicente del Raspeig, San Juan de Alicante, Playa San Juan, El
+              Campello, Mutxamel, Bussot, Villajoyosa, Benidorm y Coveta
+              Fumá— y atendemos consultas en zonas ampliadas como Jávea y
+              Altea. Buena parte de nuestros clientes son residentes
+              británicos y nórdicos de la zona, así que también atendemos en
+              inglés sin problema.
             </p>
             <p>
               Cuando nos llamás, primero escuchamos qué está pasando.
@@ -132,10 +134,11 @@ export default async function NosotrosPage({
               the same: blinds and fly screens, done properly, no shortcuts.
             </p>
             <p>
-              We work across Alicante and the Costa Blanca — Playa San
-              Juan, El Campello, Mutxamel, Bussot, Benidorm — and take
-              enquiries from extended areas like Jávea, Altea and
-              Villajoyosa. A good share of our customers are British and
+              We work across Alicante and the Costa Blanca — Alicante, San
+              Vicente del Raspeig, San Juan de Alicante, Playa San Juan, El
+              Campello, Mutxamel, Bussot, Villajoyosa, Benidorm and Coveta
+              Fumá — and take enquiries from extended areas like Jávea and
+              Altea. A good share of our customers are British and
               Nordic residents of the area, so we handle English calls and
               visits without any issue.
             </p>
